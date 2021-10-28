@@ -1,0 +1,28 @@
+{
+  "Mountains":{
+    "mount1": {
+      "id": 1,
+      "name": "Mountain 1",
+      "website_link": "www.google.com",
+      "location": "Vermont"
+    },
+    "mount2": {
+      "id": 2,
+      "name": "Mountain 2",
+      "website_link": "www.google.com",
+      "location": "Vermont"
+    },
+    "mount3": {
+      "id": 3,
+      "name": "Mountain 3",
+      "website_link": "www.google.com",
+      "location": "Vermont"
+    }
+
+
+
+
+    
+  }
+  
+}

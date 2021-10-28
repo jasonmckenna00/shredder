@@ -11,4 +11,4 @@ class MountainView(viewsets.ModelViewSet):
 
 # https://www.section.io/engineering-education/react-and-django-rest-framework/
 def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
+    return HttpResponse("Backend index page")
