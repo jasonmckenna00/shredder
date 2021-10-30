@@ -8,3 +8,31 @@
   height: 30px;
 }
 
+.welcome-page-container{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid black;
+
+}
+.mountain-index{
+  border: 1px solid black;
+  width: 50%;
+  margin: 25%;
+  display: flex;
+  justify-content: center;
+}
+
+.mountain-card{
+  width: 75px;
+  height: 100px;
+  margin: 15px;
+  border: 1px solid black; 
+  display: flex;
+  flex-direction: column;
+}
+
+
+

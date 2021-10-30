@@ -5,4 +5,4 @@ from .models import Mountain
 class MountainSerializer(serializers.ModelSerializer):
   class Meta:
     model = Mountain
-    fields = ('id', 'name', 'website_link', 'location')
+    fields = ('id', 'name', 'website_link', 'location', 'resort')
