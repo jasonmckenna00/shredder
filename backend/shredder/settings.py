@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'shredder',
+    'mountains',
     'corsheaders',
     'rest_framework'
     
@@ -55,7 +55,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'app_site.urls'
+ROOT_URLCONF = 'shredder.urls'
 
 TEMPLATES = [
     {
@@ -73,7 +73,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'app_site.wsgi.application'
+WSGI_APPLICATION = 'shredder.wsgi.application'
 
 
 # Database
