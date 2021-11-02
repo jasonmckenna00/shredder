@@ -9,6 +9,8 @@ class MountainView(viewsets.ModelViewSet):
     serializer_class = MountainSerializer
     queryset = Mountain.objects.all()
 
+    
+
 # https://www.section.io/engineering-education/react-and-django-rest-framework/
 def index(request):
     return HttpResponse("Backend index page")

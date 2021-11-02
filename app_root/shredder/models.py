@@ -12,7 +12,7 @@ class ResortNameItem(models.TextChoices):
     OTHER = 'Other'
 
 class ResortCompany(models.Model):
-  resort_company_id = models.CharField(primary_key=True,blank=False, max_length=120)
+  resort_company_id = models.CharField(primary_key=True, max_length=120)
   resort_name = models.CharField(max_length=12, choices=ResortNameItem.choices,default=ResortNameItem.OTHER)
   website_link = models.CharField(max_length=120, blank=True)
 
@@ -22,6 +22,6 @@ class Mountain(models.Model):
   name = models.CharField(default="SampleName",max_length=60, blank=False)
   website_link = models.CharField(max_length=120, blank=True)
   location = models.CharField(max_length=120, blank=True)
-  resort_company = models.ForeignKey(ResortCompany, on_delete=models.CASCADE, blank=False)
+  resort_company = models.ForeignKey(ResortCompany, on_delete=models.CASCADE, blank=False, default=ResortNameItem.OTHER)
 
 

@@ -19,17 +19,9 @@ class MountainIndex extends React.Component{
 
 
   fetchMountains(){
-    let mountains = [];
     let mount_keys = Object.keys(seed.Mountains)
-    mount_keys.forEach( (mount_key) =>{
-      let mount_json = seed['Mountains'][mount_key];
-      mountains.push(mount_json)
-      // let prop_keys = Object.keys(mount_json)
-      // let new_mountain = new Mount
-      // prop_keys.forEach( prop_key => {
-        
-      // })
-      // console.log(mount_json)
+    let mountains = mount_keys.map( (mount_key) =>{
+      return seed['Mountains'][mount_key];
     })
     
     return mountains
