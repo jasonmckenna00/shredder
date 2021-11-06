@@ -5,8 +5,8 @@ from rest_framework import routers
 
 
 router = routers.DefaultRouter()         
-router.register(r'Mountains', MountainView, 'mountain')
-router.register(r'ResortCompany', ResortCompanyView, 'resortcompany')
+router.register(r'Mountains', MountainViewSet, 'mountain')
+router.register(r'ResortCompany', ResortCompanyViewSet, 'resortcompany')
 # router.register(r'WelcomePage', views.index,'welcome')
 
 urlpatterns = [

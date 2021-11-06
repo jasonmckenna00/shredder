@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux'
+import mountains_reducer from './mountains_reducer'
 
-const RootReducer = combineReducers({
-
+const rootReducer = combineReducers({
+  mountains: mountains_reducer
 })
 
-export default RootReducer
+export default rootReducer

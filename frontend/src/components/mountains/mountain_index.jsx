@@ -1,7 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import MountainCard from './mountain_card';
-import seed from '../../default-seed.json';
 
 class MountainIndex extends React.Component{
   
@@ -13,23 +12,16 @@ class MountainIndex extends React.Component{
   }
 
   componentDidMount(){
-    this.setState({mountains: this.fetchMountains()})
-    // console.log(this.state.mountains)
-  }
-
-
-  fetchMountains(){
-    let mount_keys = Object.keys(seed.Mountains)
-    let mountains = mount_keys.map( (mount_key) =>{
-      return seed['Mountains'][mount_key];
+    // this.setState({mountains: this.fetchMountains()})
+    this.props.getAllMountains().then( ()=>{
+      this.setState({mountains: this.props.mountains})
     })
     
-    return mountains
-  } 
-
+    
+  }
   
   render(){
-    if (!this.state.mountains) return null
+    if (!this.state.mountains.length) return null
     const mountList = this.state.mountains.map((mount,i) =>{
       return<MountainCard 
         key={i}

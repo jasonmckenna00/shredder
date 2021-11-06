@@ -5,11 +5,11 @@ from rest_framework import viewsets
 from .models import Mountain, ResortCompany       
 
 
-class MountainView(viewsets.ModelViewSet):
+class MountainViewSet(viewsets.ModelViewSet):
     serializer_class = MountainSerializer
     queryset = Mountain.objects.all()
 
-class ResortCompanyView(viewsets.ModelViewSet):
+class ResortCompanyViewSet(viewsets.ModelViewSet):
     serializer_class = ResortCompanySerializer
     queryset = ResortCompany.objects.all()
 
