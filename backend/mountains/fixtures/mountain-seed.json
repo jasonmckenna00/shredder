@@ -1,0 +1,43 @@
+[
+  {
+    "model": "mountains.ResortCompany",
+    "pk": 1,
+    "fields":{
+      "website_link": "ResortCompany 1",
+      "resort_name": "Other"
+    }
+  },
+
+  {
+    "model": "mountains.Mountain",
+    "pk": 1,
+    "fields":{
+      "name": "Mountain 1",
+      "website_link": "www.google1.com",
+      "location": "Vermont",
+      "resort_company": 1
+    }
+  },
+  {
+    "model": "mountains.Mountain",
+    "pk": 2,
+    "fields":{
+      "name": "Mountain 2",
+      "website_link": "www.google2.com",
+      "location": "Vermont",
+      "resort_company": 1
+
+    }
+  },
+  {
+    "model": "mountains.Mountain",
+    "pk": 2,
+    "fields":{
+      "name": "Mountain 2",
+      "website_link": "www.google2.com",
+      "location": "Vermont",
+      "resort_company": 1
+
+    }
+  }         
+]

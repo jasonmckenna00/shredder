@@ -1,23 +1,24 @@
+
 {
-  "Mountains":{
-    "mount1": {
-      "mountain_id": 1,
-      "name": "Mountain 1",
-      "website_link": "www.google.com",
-      "location": "Vermont"
-    },
-    "mount2": {
-      "mountain_id": 2,
-      "name": "Mountain 2",
-      "website_link": "www.google.com",
-      "location": "Vermont"
-    },
-    "mount3": {
-      "mountain_id": 3,
-      "name": "Mountain 3",
-      "website_link": "www.google.com",
-      "location": "Vermont"
+    "Mountains":{
+      "mount1": {
+        "mountain_id": 1,
+        "name": "Mountain 1",
+        "website_link": "www.google.com",
+        "location": "Vermont"
+      },
+      "mount2": {
+        "mountain_id": 2,
+        "name": "Mountain 2",
+        "website_link": "www.google.com",
+        "location": "Vermont"
+      },
+      "mount3": {
+        "mountain_id": 3,
+        "name": "Mountain 3",
+        "website_link": "www.google.com",
+        "location": "Vermont"
+      }
     }
+    
   }
-  
-}

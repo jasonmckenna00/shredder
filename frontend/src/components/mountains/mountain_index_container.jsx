@@ -1,44 +1,15 @@
-import React from 'react';
-import { withRouter } from 'react-router-dom';
-import MountainCard from './mountain_card';
-import seed from '../../default-seed.json';
+import { connect } from 'react-redux'
+import MountainIndex from './mountain_index'
+// const msp = (state, ownProps) => {
+//   return {}
+// }
 
-class MountainIndex extends React.Component{
-  
-  constructor(props){
-    super(props)
-    this.state = {
-      mountains: []
-    }
-  }
+// const mdp = dispatch => {
+//   return{}
+// }
 
-  componentDidMount(){
-    this.setState({mountains: this.fetchMountains()})
-    // console.log(this.state.mountains)
-  }
+// const MountainIndexContainer = connect(msp,mdp)(MountainIndex)
+const MountainIndexContainer = (MountainIndex)
 
 
-  fetchMountains(){
-    let mount_keys = Object.keys(seed.Mountains)
-    let mountains = mount_keys.map( (mount_key) =>{
-      return seed['Mountains'][mount_key];
-    })
-    
-    return mountains
-  } 
-
-  
-  render(){
-    if (!this.state.mountains) return null
-    const mountList = this.state.mountains.map((mount,i) =>{
-      return<MountainCard 
-        key={i}
-        mountain={mount}
-        />
-    })
-    return <div className='mountain-index'>{mountList}</div>
-    
-  }
-}               
-
-export default withRouter(MountainIndex)
+export default MountainIndexContainer
