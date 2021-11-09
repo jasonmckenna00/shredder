@@ -3,8 +3,8 @@
     "model": "mountains.ResortCompany",
     "pk": 1,
     "fields":{
-      "website_link": "ResortCompany 1",
-      "resort_name": "Other"
+      "website_link": "https://www.epicpass.com/",
+      "resort_name": "EPIC"
     }
   },
 
@@ -12,9 +12,9 @@
     "model": "mountains.Mountain",
     "pk": 1,
     "fields":{
-      "name": "Mountain 1",
-      "website_link": "www.google1.com",
-      "location": "Vermont",
+      "name": "Park City",
+      "website_link": "https://www.parkcitymountain.com/",
+      "location": "40.6514 N, -111.5080 W",
       "resort_company": 1
     }
   },
@@ -22,22 +22,21 @@
     "model": "mountains.Mountain",
     "pk": 2,
     "fields":{
-      "name": "Mountain 2",
-      "website_link": "www.google2.com",
-      "location": "Vermont",
+      "name": "Telluride",
+      "website_link": "https://tellurideskiresort.com/",
+      "location": "37.9363° N, 107.8466° W",
       "resort_company": 1
 
     }
   },
   {
     "model": "mountains.Mountain",
-    "pk": 2,
+    "pk": 3,
     "fields":{
-      "name": "Mountain 2",
-      "website_link": "www.google2.com",
-      "location": "Vermont",
+      "name": "Mt Snow",
+      "website_link": "https://www.mountsnow.com/",
+      "location": "42.9602° N, 72.9204° W",
       "resort_company": 1
-
     }
   }         
 ]

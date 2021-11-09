@@ -16,6 +16,9 @@ class ResortCompany(models.Model):
   resort_name = models.CharField(max_length=12, choices=ResortNameItem.choices,default=ResortNameItem.OTHER)
   website_link = models.CharField(max_length=120, blank=True)
 
+# class Location(models.Model):
+#   state
+
 
 class Mountain(models.Model):
   mountain_id = models.CharField(primary_key=True,blank=False, max_length=120)

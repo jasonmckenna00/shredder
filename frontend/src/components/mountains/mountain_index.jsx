@@ -7,7 +7,8 @@ class MountainIndex extends React.Component{
   constructor(props){
     super(props)
     this.state = {
-      mountains: []
+      mountains: [],
+      myBoy: {}
     }
   }
 
