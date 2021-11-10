@@ -5,47 +5,48 @@ class MountainCard extends React.Component{
   constructor(props){
     super(props)
     this.state = {
-      curr_temp: 0,
-      curr_conditions: {},
-      day_one: {},
-      day_two: {},
-      day_three: {}
+      currTemp: {},
+      currWeather: {},
+      forecast:{}
     }
   }
 
   componentDidMount(){
+    this.fetchWeather()
+    
+
+  }
+
+  fetchWeather(){
     let [lat, lon] = [40.6514,-111.5080]
     const API_KEY = process.env.REACT_APP_API_KEY
-    let url_base = `http://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}\&exclude=hourly,minutely&units=imperial&appid=${API_KEY}`
-    fetch(url_base)
+    let urlBase = `http://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly,minutely&units=imperial&appid=${API_KEY}`
+    fetch(urlBase)
     .then( resp => {
-      resp.json().then( obj => {
-        // console.log(obj)
-        let {current, daily} = obj
-        let num_days = 3
-        let forecast = daily.slice(0,num_days)
-        // time = new Date(dt * 1000) => Mon Nov 08 2021 19:55:42 GMT-0500 (Eastern Standard Time)
-
-        // console.log(current)
-        
-      })
+      if (!resp.ok) {
+        //handle failure
+        console.log("Unable to get weather")
+      }
+      
+      else {
+        resp.json()
+        .then( obj => {
+          let {current, daily} = obj
+          let {weather} = current
+          let numDays = 3
+          let forecast = daily.slice(0,numDays)
+          this.setState({ currTemp: current, currWeather: weather[0], forecast: forecast })
+        })
+      }
     })
-    // .catch( err => console.log(err.mess))
-
   }
 
-  fetchWeather(location){
-    //parse mountain coordinates
-    // let lat, lon = parsed coords
-    // let url_base = `api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}
-    // &exclude=hourly,minutely&units=imperial&appid=${apikey}`
-    //axios web request
-    //current[temp]
-    //current(weather object) ... 
-    //daily[0][1][2] = next three days
-    //dailys have temp object => day, min,max temps
+  handleTime(unixTime){
+    const time = new Date(unixTime * 1000)
+    const day = time.getDay()
+    const date = time.getDate()
+    const month = time.getMonth()
   }
-
 
   render(){
     let {name, website_link, location} = this.props.mountain
