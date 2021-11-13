@@ -9,12 +9,39 @@
   },
 
   {
+    "model":"mountains.Location",
+    "pk":1,
+    "fields":{
+      "latitude": "40.6514",
+      "longitude": "-111.5080",
+      "state": "Colorado"
+    }
+  },
+  {
+    "model":"mountains.Location",
+    "pk":2,
+    "fields":{
+      "latitude": "37.9363",
+      "longitude": "-107.8466",
+      "state": "Colorado"
+    }
+  },  {
+    "model":"mountains.Location",
+    "pk":3,
+    "fields":{
+      "latitude": "42.9602",
+      "longitude": "-72.9204",
+      "state": "Vermont"
+    }
+  },
+
+  {
     "model": "mountains.Mountain",
     "pk": 1,
     "fields":{
       "name": "Park City",
       "website_link": "https://www.parkcitymountain.com/",
-      "location": "40.6514 N, -111.5080 W",
+      "location": 1,
       "resort_company": 1
     }
   },
@@ -24,7 +51,7 @@
     "fields":{
       "name": "Telluride",
       "website_link": "https://tellurideskiresort.com/",
-      "location": "37.9363° N, 107.8466° W",
+      "location": 2,
       "resort_company": 1
 
     }
@@ -35,7 +62,7 @@
     "fields":{
       "name": "Mt Snow",
       "website_link": "https://www.mountsnow.com/",
-      "location": "42.9602° N, 72.9204° W",
+      "location": 3,
       "resort_company": 1
     }
   }         

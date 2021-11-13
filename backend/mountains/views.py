@@ -1,17 +1,21 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from .serializers import MountainSerializer, ResortCompanySerializer 
+from .serializers import MountainSerializer, ResortCompanySerializer, LocationSerializer
 from rest_framework import viewsets    
-from .models import Mountain, ResortCompany       
+from .models import Mountain, ResortCompany, Location       
 
 
 class MountainViewSet(viewsets.ModelViewSet):
     serializer_class = MountainSerializer
-    queryset = Mountain.objects.all()
+    queryset = Mountain.objects.select_related('resort_company').all()
 
 class ResortCompanyViewSet(viewsets.ModelViewSet):
     serializer_class = ResortCompanySerializer
     queryset = ResortCompany.objects.all()
+
+class LocationViewset(viewsets.ModelViewSet):
+    serializer_class = LocationSerializer
+    queryset = Location.objects.all()
 
     
 

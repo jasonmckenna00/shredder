@@ -28,7 +28,7 @@ class MountainIndex extends React.Component{
         mountain={mount}
         />
     })
-    return <div className='mountain-index'>{mountList}</div>
+    return <div className='card-deck'>{mountList}</div>
     
   }
 }               

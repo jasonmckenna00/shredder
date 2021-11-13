@@ -25,20 +25,45 @@
   justify-content: center;
 }
 
-.mountain-card{
-  width: 75px;
-  height: 100px;
-  margin: 15px;
-  border: 1px solid black; 
-  display: flex;
-  flex-direction: column;
-}
+
 
 .mountain-search-bar{
   width: 25%;
   height: 100px;
   border: 1px solid black; 
-  
+
 }
+
+
+.mountain-card{
+  /* width: 75px;
+  height: 100px;
+  margin: 15px; */
+  border: 1px solid black; 
+  /* display: flex; */
+  /* flex-direction: column; */
+}
+.mountain-card-thumbnail{
+  border: 1px solid black; 
+}
+.mountain-card-cw-container{
+  border: 1px solid black; 
+}
+.mountain-card-cw-icon{
+  border: 1px solid black; 
+}
+.mountain-card-cw-temp{
+  border: 1px solid black; 
+}
+.mountain-card-cw-cond{
+  border: 1px solid black; 
+}
+
+.mountain-card-fc-container{
+  border: 1px solid black; 
+
+}
+
+
 
 
