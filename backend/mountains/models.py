@@ -12,7 +12,9 @@ class ResortNameItem(models.TextChoices):
     OTHER = 'Other'
 
 class ResortCompany(models.Model):
-  resort_company_id = models.CharField(primary_key=True, max_length=120)
+  def __str__(self):
+    return f'{self.resort_name}'
+  # resort_company_id = models.CharField(primary_key=True, max_length=120)
   resort_name = models.CharField(max_length=12, choices=ResortNameItem.choices,default=ResortNameItem.OTHER)
   website_link = models.CharField(max_length=120, blank=True)
 
@@ -37,16 +39,21 @@ class StateName(models.TextChoices):
   CANADA = 'Canada'
 
 class Location(models.Model):
-  location_id = models.CharField(primary_key=True, blank=False, max_length=30)
+  def __str__(self):
+    return f'{self.city}, {self.state}'
+  # location_id = models.CharField(primary_key=True, blank=False, max_length=30)
   latitude = models.CharField(max_length=10, blank=True)
   longitude = models.CharField(max_length=10, blank=True)
+  city = models.CharField(max_length=60, blank=True)
   state = models.CharField(max_length=20, choices=StateName.choices, default=StateName.COLORADO)
 
 
 ####################
 
 class Mountain(models.Model):
-  mountain_id = models.CharField(primary_key=True,blank=False, max_length=120)
+  def __str__(self):
+    return f'{self.name}'
+  # mountain_id = models.CharField(primary_key=True,blank=False, max_length=120)
   name = models.CharField(default="SampleName",max_length=60, blank=False)
   website_link = models.CharField(max_length=120, blank=True)
   location = models.ForeignKey(Location, on_delete=models.CASCADE, blank=True)

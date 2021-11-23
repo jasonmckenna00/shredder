@@ -11,9 +11,9 @@ export const getAllMountains = () => async dispatch => {
   }
 }
 
-export const getMountain = (mountain_id) => async dispatch => {
+export const getMountain = (id) => async dispatch => {
   try {
-    const resp = await MountainUtil.fetchMountain(mountain_id)
+    const resp = await MountainUtil.fetchMountain(id)
     return dispatch({ type: GET_MOUNTAIN, payload: resp.data })
   } catch (err) {
     return console.log(err)

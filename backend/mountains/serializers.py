@@ -10,13 +10,13 @@ class ResortCompanySerializer(serializers.ModelSerializer):
 class LocationSerializer(serializers.ModelSerializer):
   class Meta:
     model = Location
-    fields = ['location_id', 'latitude', 'longitude', 'state']
+    fields = [ 'latitude', 'longitude', 'state', 'city']
 
 class MountainSerializer(serializers.ModelSerializer):
   resort_company = ResortCompanySerializer()
   location = LocationSerializer()
   class Meta:
     model = Mountain
-    fields = ['mountain_id', 'name', 'website_link', 'location', 'resort_company']
+    fields = [ 'name', 'website_link', 'location', 'resort_company']
     # fields = '__all__'
 

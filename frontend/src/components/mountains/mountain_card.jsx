@@ -40,9 +40,6 @@ class MountainCard extends React.Component{
           let numDays = 3
           let forecast = daily.slice(0,numDays)
           this.setState({ currWeather: current, forecast: forecast })
-          
-          // console.log("-------")
-          // console.log(forecast[0])
         })
       }
     })
@@ -89,7 +86,7 @@ class MountainCard extends React.Component{
 
   render(){
     if(!this.state.fetchAttempt || !this.state.forecast) return null   //won't try to display anything without a fetch attempt
-    let {name, website_link, location:{state},resort_company} = this.props.mountain
+    let {name, website_link, location:{state, city},resort_company} = this.props.mountain
     const mountainCam = this.hasMountainCam(resort_company,website_link)
     const todayWeatherContainer = this.todayWeatherContainer()
     const forecastWeatherContainer = this.forecastWeatherContainer()
@@ -98,7 +95,7 @@ class MountainCard extends React.Component{
       <div className='card'>
         <div className='card-body'>
           <div className='card-title h4'>{name}</div>
-          <div className='card-subtitle h6'>{state}</div>
+          <div className='card-subtitle h6'>{city}, {state}</div>
           <img src={mountain_default} alt="" className='card-img-top'/>
           {todayWeatherContainer}
           <Button 

@@ -33,7 +33,7 @@ class MCWeatherItem extends React.Component{
     return(
     <div className='mc-weather-item'>
         <div className='mc-weather-today'>
-          <img src={icon} alt="" className='weather-icon'/>
+          <img src={icon} alt="" className='card-img-top weather-icon'/>
           <div className='weather-temp h3'>{temp}{'\u00b0'}</div>
           <div className='weather-conditions ml-3 mt-2'>
             <p className='h6'>Snowfall: {snowTotal}"</p>
