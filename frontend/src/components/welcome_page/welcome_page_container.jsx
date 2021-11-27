@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import MountainIndexContainer from '../mountains/mountain_index_container'
+import MountainFavoritesContainer from '../mountains/mountain_favorites_container'
 import MountainSearchBar from '../search_bar/mountain_search_bar';
 class WelcomePageContainer extends React.Component{
 
@@ -9,7 +9,7 @@ class WelcomePageContainer extends React.Component{
       <div className='welcome-page-container'>
         Inside WelcomePageContainer
         <MountainSearchBar />
-        <MountainIndexContainer />
+        <MountainFavoritesContainer />
       </div>
     )
   }

@@ -1,20 +1,15 @@
 import { connect } from 'react-redux'
-import MountainIndex from './mountain_index'
 import * as MountainActions from '../../actions/mountain_actions'
-const msp = (state) =>{
-  return {
-    mountains: Object.values(state.mountains)
-  
-  }
+import MountainIndex from "../mountains/mountain_index"
+
+const msp = (state) => {
+	return{
+		mountains: Object.values(state.mountains.index),
+	}
 }
 
 const mdp = dispatch => ({
   getAllMountains: () => dispatch(MountainActions.getAllMountains()),
-  getMountain: () => dispatch(MountainActions.getMountain())
 })
-
 const MountainIndexContainer = connect(msp,mdp)(MountainIndex)
-// const MountainIndexContainer = (MountainIndex)
-
-
 export default MountainIndexContainer

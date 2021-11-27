@@ -17,6 +17,7 @@ class MountainSerializer(serializers.ModelSerializer):
   location = LocationSerializer()
   class Meta:
     model = Mountain
-    fields = [ 'name', 'website_link', 'location', 'resort_company']
+    fields = [ 'id', 'name', 'website_link', 'location', 'resort_company']
     # fields = '__all__'
+
 
