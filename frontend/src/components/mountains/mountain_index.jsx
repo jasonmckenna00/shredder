@@ -1,7 +1,7 @@
 import React from 'react'
 import { withRouter } from 'react-router'
 import { INDEX } from '../../utils/mountain_util'
-import MountainCard from '../mountains/mountain_card'
+import MountainCardContainer from '../mountains/mountain_card_container'
 class MountainIndex extends React.Component{
 
   constructor(props){
@@ -19,7 +19,7 @@ class MountainIndex extends React.Component{
   render(){
     if (!this.state.mountains) return null
     const mountList = this.state.mountains.map((mount,i) =>{
-      return<MountainCard 
+      return<MountainCardContainer 
         key={i}
         mountain={mount}
         type={INDEX}

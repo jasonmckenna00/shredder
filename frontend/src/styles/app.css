@@ -90,3 +90,7 @@
   text-align: left
 }
 
+.add-to-favorites-button:hover{
+  cursor: pointer;
+}
+

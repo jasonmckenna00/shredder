@@ -2,7 +2,8 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import mountain_default from '../../assets/images/mountain-default.jpg'
 import MCWeatherCard from './mc_weather_card';
-import { FAVORITE } from '../../utils/mountain_util';
+import { FAVORITE, INDEX } from '../../utils/mountain_util';
+import { PlusCircleDotted } from 'react-bootstrap-icons'
 
 class MountainCard extends React.Component{
   constructor(props){
@@ -10,6 +11,7 @@ class MountainCard extends React.Component{
     this.state = {
       
     }
+    this.addToFavorites = this.addToFavorites.bind(this)
   }
 
   hasMountainCam(resort, website_link){
@@ -27,6 +29,21 @@ class MountainCard extends React.Component{
     return <></>
   }
 
+  addToFavorites(){
+    //optimize this, shouldn't have to check every moutnain everytime. could be quicker
+    //prob dont have to map it, can do a foreach
+    const {id} = this.props.mountain
+    const favMountainIds = this.props.favoriteMountains.map( obj => {
+      return obj['id']
+    })
+    if (favMountainIds.includes(id)) return
+    this.props.addFavoriteMountain(id)
+  }
+
+  removeFromFavorites(){
+    const {id} = this.props.mountain
+    // this.props.removeFavoriteMountain(id)
+  }
 
 
   render(){
@@ -34,17 +51,25 @@ class MountainCard extends React.Component{
     let {name, website_link, location ,resort_company} = this.props.mountain
     const {state, city} = location
     const mountainCam = this.hasMountainCam(resort_company,website_link)
-    // const weatherCard = this.weatherCard()
     let weatherCard = null
     if (this.props.type === FAVORITE){
       weatherCard = <MCWeatherCard location={location} />
     }
+    let addFavoriteButton = null
+    if (this.props.type === INDEX){
+      addFavoriteButton = <PlusCircleDotted className='add-to-favorites-button' onClick={this.addToFavorites}/>
+    }
+
+    
     
     return(
       <div className='card'>
         <div className='card-body'>
-          <div className='card-title h4'>{name}</div>
-          <div className='card-subtitle h6'>{city}, {state}</div>
+          <div className='card-title h4 d-flex justify-content-between align-items-center'>
+            {name}{addFavoriteButton}
+          </div>
+          <div className='card-subtitle text-muted h6'>{city}, {state}</div>
+          
           <img src={mountain_default} alt="" className='card-img-top'/>
           {weatherCard}
           <a href={website_link} target="_blank" className='card-link' rel="noopener noreferrer">Site</a>
