@@ -4,7 +4,7 @@ import MountainIndex from "../mountains/mountain_index"
 
 const msp = (state) => {
 	return{
-		mountains: Object.values(state.mountains.index),
+		mountains: Object.values(state.mountains),
 	}
 }
 

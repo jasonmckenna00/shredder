@@ -3,15 +3,13 @@ import { withRouter } from 'react-router-dom';
 import mountain_default from '../../assets/images/mountain-default.jpg'
 import MCWeatherCard from './mc_weather_card';
 import { FAVORITE, INDEX } from '../../utils/mountain_util';
-import { PlusCircleDotted } from 'react-bootstrap-icons'
+import { PlusCircleDotted, XCircle } from 'react-bootstrap-icons'
 
 class MountainCard extends React.Component{
   constructor(props){
     super(props)
-    this.state = {
-      
-    }
     this.addToFavorites = this.addToFavorites.bind(this)
+    this.removeFromFavorites = this.removeFromFavorites.bind(this)
   }
 
   hasMountainCam(resort, website_link){
@@ -26,23 +24,24 @@ class MountainCard extends React.Component{
 
       return <a href={mountainCamUrl} target="_blank" className='card-link' rel="noopener noreferrer">Snow Cams</a>
     }
-    return <></>
+    return null
   }
 
   addToFavorites(){
-    //optimize this, shouldn't have to check every moutnain everytime. could be quicker
-    //prob dont have to map it, can do a foreach
-    const {id} = this.props.mountain
-    const favMountainIds = this.props.favoriteMountains.map( obj => {
-      return obj['id']
-    })
-    if (favMountainIds.includes(id)) return
+    let {id} = this.props.mountain
+    id.toString()
+    if (this.props.favoriteMountainIds.includes(id)) return
     this.props.addFavoriteMountain(id)
   }
 
   removeFromFavorites(){
     const {id} = this.props.mountain
-    // this.props.removeFavoriteMountain(id)
+    const mountainId = id.toString()
+
+    // debugger
+    if (this.props.favoriteMountainIds.includes(mountainId)){
+      this.props.removeFavoriteMountain(mountainId)
+    }
   }
 
 
@@ -52,8 +51,10 @@ class MountainCard extends React.Component{
     const {state, city} = location
     const mountainCam = this.hasMountainCam(resort_company,website_link)
     let weatherCard = null
+    let removeFavoriteButton = null
     if (this.props.type === FAVORITE){
       weatherCard = <MCWeatherCard location={location} />
+      removeFavoriteButton = <XCircle className='add-to-favorites-button' onClick={this.removeFromFavorites}/>
     }
     let addFavoriteButton = null
     if (this.props.type === INDEX){
@@ -66,7 +67,7 @@ class MountainCard extends React.Component{
       <div className='card'>
         <div className='card-body'>
           <div className='card-title h4 d-flex justify-content-between align-items-center'>
-            {name}{addFavoriteButton}
+            {name}{addFavoriteButton}{removeFavoriteButton}
           </div>
           <div className='card-subtitle text-muted h6'>{city}, {state}</div>
           

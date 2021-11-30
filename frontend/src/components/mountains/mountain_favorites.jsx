@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import MountainCard from './mountain_card';
+import MountainCardContainer from './mountain_card_container';
 import { FAVORITE } from '../../utils/mountain_util';
 import equal from 'fast-deep-equal'
 class MountainFavorites extends React.Component{
@@ -14,9 +14,9 @@ class MountainFavorites extends React.Component{
   }
 
   componentDidMount(){
-    this.props.getFavoriteMountains([1,2])
+    this.props.getFavoriteMountains([1,2])    
     .then(this.setState({favoriteMountains: this.props.favoriteMountains}))
-    .then(this.setState({fetchAttempt: true}))
+    // .then(this.setState({fetchAttempt: true}))
   }
 
   componentDidUpdate(prevProps){
@@ -27,18 +27,18 @@ class MountainFavorites extends React.Component{
   
   render(){
     // if (!this.state.mountains.length) return null
-    if (!this.state.fetchAttempt) return null    
+    // if (!this.state.fetchAttempt) return null    
     const mountList = this.state.favoriteMountains.map((mount,i) =>{
-      return<MountainCard 
+      return<MountainCardContainer 
         key={i}
         mountain={mount}
         type={FAVORITE}
         />
     })
-    return <div>
-      Favorite Mountains
-      <div className='card-deck'>{mountList}</div>
-    </div>
+    return <div className='card-deck'>
+        Favorite Mountains
+        {mountList}
+      </div>
     
     
   }

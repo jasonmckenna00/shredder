@@ -4,7 +4,7 @@ import * as MountainActions from '../../actions/mountain_actions'
 const msp = (state) =>{
   return {
     mountains: Object.values(state.mountains),
-    favoriteMountains: state.mountains.favoriteMountains
+    favoriteMountains: Object.values(state.favoriteMountains)
   
   }
 }
