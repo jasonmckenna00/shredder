@@ -2,6 +2,7 @@ import { connect } from 'react-redux'
 // import MountainFavorites from './mountain_favorites'
 import * as MountainActions from '../../actions/mountain_actions'
 import MountainCard from './mountain_card'
+
 const msp = (state) =>{
   return {
     favoriteMountainIds: Object.keys(state.favoriteMountains)

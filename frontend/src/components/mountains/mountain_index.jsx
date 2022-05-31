@@ -1,35 +1,61 @@
-import React from 'react'
+import React, { useEffect} from 'react'
 import { withRouter } from 'react-router'
 import { INDEX } from '../../utils/mountain_util'
 import MountainCardContainer from '../mountains/mountain_card_container'
-class MountainIndex extends React.Component{
+import Carousel from "react-multi-carousel";
+import 'react-multi-carousel/lib/styles.css';
+const responsive = {
+  superLargeDesktop: {
+    // the naming can be any, depends on you.
+    breakpoint: { max: 4000, min: 3000 },
+    items: 5
+  },
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 3
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 2
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1
+  }
+};
 
-  constructor(props){
-    super(props)
-    this.state = {
-      mountains: [],
-    }
-  }
-  componentDidMount(){
-    this.props.getAllMountains().then(() => {
-      this.setState({mountains: this.props.mountains})
-    })
-  }
+const MountainIndex = (props) => {
+  
+  useEffect(() => {
+    const fetchMountains = () => {
+      props.getAllMountains()
+    } 
 
-  render(){
-    if (!this.state.mountains) return null
-    const mountList = this.state.mountains.map((mount,i) =>{
-      return<MountainCardContainer 
-        key={i}
-        mountain={mount}
-        type={INDEX}
-        />
-    })
-    return <div className='card-deck'> 
-      Mountain Index
-      {mountList}
-    </div>
-  }
+    fetchMountains()
+  }, [])
+
+  const mountList = props.mountains.map((mount,i) =>{
+    // console.log(mount)
+    return<MountainCardContainer 
+      key={i}
+      mountain={mount}
+      type={INDEX}
+      />
+  })
+
+  return (
+    <div className='featured-mountains'>
+      <h3>Featured Mountains</h3>
+      <div className='card-deck mountain-index'> 
+        {mountList}
+      </div>
+      <Carousel responsive={responsive}>
+        {mountList}
+      </Carousel>
+    </div> 
+  )
+
 }
+
 
 export default withRouter(MountainIndex)

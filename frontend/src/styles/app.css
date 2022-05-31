@@ -8,8 +8,17 @@
   height: 30px;
 }
 
-.welcome-page-container{
+#root {
+  display: flex;
   width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.welcome-page-container{
+  margin: 5%;
+  width: 90%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -25,7 +34,11 @@
   justify-content: center;
 } */
 
-
+.mountain-index{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
 
 .mountain-search-bar{
   width: 25%;
@@ -34,6 +47,10 @@
 
 }
 
+.featured-mountains{
+  display: flex;
+  justify-content: center;
+}
 
 .mountain-card{
   /* width: 75px;

@@ -1,4 +1,7 @@
-import { ADD_FAVORITE_MOUNTAIN, GET_ALL_MOUNTAINS, GET_FAVORITE_MOUNTAINS, REMOVE_FAVORITE_MOUNTAIN } from "../actions/mountain_actions"
+import { ADD_FAVORITE_MOUNTAIN, 
+  GET_ALL_MOUNTAINS, 
+  GET_FAVORITE_MOUNTAINS, 
+  REMOVE_FAVORITE_MOUNTAIN } from "../actions/mountain_actions"
 import _ from "lodash";
 
 
