@@ -17,10 +17,14 @@ const MountainFavorites = (props) => {
       />
   })
   return(
+  <div className='favorite-mountains'>
+    <h3>Favorite Mountains</h3>
     <div className='card-deck'>
-      Favorite Mountains
+      
       {mountList}
     </div>
+
+  </div>
   )
 }
 

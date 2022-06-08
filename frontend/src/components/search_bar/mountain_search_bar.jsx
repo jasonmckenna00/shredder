@@ -1,5 +1,5 @@
 import React from 'react'
-import MountainIndexContainer from '../mountains/mountain_index_container'
+
 
 
 const MountainSearchBar = () => {
@@ -13,7 +13,7 @@ const MountainSearchBar = () => {
           <i className="fas fa-search"></i>
         </span>
     </div>
-    <MountainIndexContainer />
+    
     </div>
   
 }

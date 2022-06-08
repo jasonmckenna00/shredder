@@ -2,8 +2,14 @@ import React, { useEffect} from 'react'
 import { withRouter } from 'react-router'
 import { INDEX } from '../../utils/mountain_util'
 import MountainCardContainer from '../mountains/mountain_card_container'
-import Carousel from "react-multi-carousel";
-import 'react-multi-carousel/lib/styles.css';
+import no_image from '../../assets/images/video-not-working.png'
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from 'react-responsive-carousel';
+import mountain_default from '../../assets/images/mountain-default.jpg'
+// import Carousel from "react-multi-carousel";
+// import 'react-multi-carousel/lib/styles.css';
+
+
 const responsive = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
@@ -40,18 +46,25 @@ const MountainIndex = (props) => {
       key={i}
       mountain={mount}
       type={INDEX}
+      // className="legend"
       />
   })
-
+  // get a corosell with index then a map with their pin locations
   return (
     <div className='featured-mountains'>
       <h3>Featured Mountains</h3>
-      <div className='card-deck mountain-index'> 
+      {/* <div className='card-deck mountain-index'> 
         {mountList}
-      </div>
-      <Carousel responsive={responsive}>
+      </div> */}
+      {/* <Carousel responsive={responsive}>
         {mountList}
+      </Carousel> */}
+      <Carousel showArrows={true}>
+          {mountList}
       </Carousel>
+    
+    
+    
     </div> 
   )
 

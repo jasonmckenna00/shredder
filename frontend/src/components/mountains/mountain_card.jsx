@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import mountain_default from '../../assets/images/mountain-default.jpg'
+// import mountain_default from '../../assets/images/mountain-default.jpg'
+import no_image from '../../assets/images/video-not-working.png'
 import MCWeatherCard from './mc_weather_card';
 import { FAVORITE} from '../../utils/mountain_util';
 import { PlusCircleDotted, XCircle } from 'react-bootstrap-icons'
@@ -49,12 +50,12 @@ const MountainCard = (props) => {
   return (
     <div className='card'>
       <div className='card-body'>
-        <div className='card-title h4 d-flex justify-content-between align-items-center'>
-          {name}
-          <div>{favoriteAction}</div>
+        <div className='card-title card-title-header'>
+          <h3>{name}</h3>
+          {favoriteAction}
         </div>
-        <div className='card-subtitle text-muted h6'>{city}, {state}</div>
-        <img src={mountain_default} alt="" className='card-img-top'/>
+        <div className='card-subtitle text-align-center text-muted h6 '>{city}, {state}</div>
+        <img src={no_image} alt="" className='card-img-top'/>
         {type === FAVORITE && <MCWeatherCard location={location} />}
 
 

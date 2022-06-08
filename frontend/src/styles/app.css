@@ -16,6 +16,28 @@
   flex-direction: column;
 }
 
+.card {
+  max-width: 20em;
+  
+}
+
+.card-title-header{
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center
+}
+
+.card-title-header h3{
+  width: 100%; 
+}
+
+.card-subtitle{
+  text-align: center;
+  
+} 
+
 .welcome-page-container{
   margin: 5%;
   width: 90%;

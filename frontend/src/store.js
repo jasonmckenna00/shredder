@@ -1,26 +1,15 @@
-import { createStore, applyMiddleware, combineReducers} from 'redux';
+import { createStore, applyMiddleware} from 'redux';
 import rootReducer from './reducers/root_reducer';
 import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-// const middleware = [thunk]
-// const initialState = {}
-// const store = createStore(
-//   rootReducer,  
-//   initialState,
-//   composeWithDevTools(applyMiddleware(...middleware)))
-
-const rootReducer = combineReducers({
-  mountains: mountainReducer,
-  favoriteMountains: favoriteMountainReducer
-})
-
-const store = configureStore({
-  reducer:{
-    rootReducer
-  }
-})
-
-
+const middleware = [thunk]
+const initialState = {}
+const store = createStore(
+  rootReducer,  
+  initialState,
+  composeWithDevTools(applyMiddleware(...middleware))
+  
+  )
 
 export default store;
