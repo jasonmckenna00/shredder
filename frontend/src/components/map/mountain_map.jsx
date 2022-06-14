@@ -3,7 +3,7 @@ import { GoogleMap, Marker, useJsApiLoader  } from '@react-google-maps/api';
 const MountainMap = (props) => {
     const { isLoaded } = useJsApiLoader({
         id: 'google-map-script',
-        googleMapsApiKey: "AIzaSyD3UjB3WEylKqqr9rnOYJwEiaOYL8tNqT4"
+        googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY
     })
     const [map, setMap] = useState(null)
     const containerStyle = {
