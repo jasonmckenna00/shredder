@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import MCWeatherItem from './mc_weather_item'
 import {Button, Collapse} from 'react-bootstrap'
 
@@ -9,11 +9,7 @@ const MCWeatherCard = (props) => {
   const [forecastOpen, setForecastOpen] = useState(false)
   // const [fetchAttempt, setFetchAttempt] = useState(false)
 
-  useEffect(() => {
-    fetchWeather()
-  }, [])
-
-  const fetchWeather = () => {
+  const fetchWeather = useCallback( ()=> {
     let {latitude,longitude} = props.location
     const API_KEY = process.env.REACT_APP_API_KEY
     let urlBase = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly,minutely&units=imperial&appid=${API_KEY}`
@@ -32,7 +28,16 @@ const MCWeatherCard = (props) => {
         console.log('Unable to get weather')
       }
     })
-  }
+  },[props.location])
+
+  useEffect(() => {
+    fetchWeather()
+  }, [fetchWeather])
+
+  
+  
+    
+  
 
   const forecastWeatherContainer = () => {
     const weatherItems = forecast.map( (weatherObj,i) => {

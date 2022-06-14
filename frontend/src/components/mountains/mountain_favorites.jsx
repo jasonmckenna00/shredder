@@ -3,13 +3,17 @@ import { withRouter } from 'react-router-dom';
 import MountainCardContainer from './mountain_card_container';
 import { FAVORITE } from '../../utils/mountain_util';
 
-const MountainFavorites = (props) => {
+const MountainFavorites = ({getFavoriteMountains, favoriteMountains}) => {
+
+  
+
   useEffect(() => {
-    props.getFavoriteMountains([1,2])
+    getFavoriteMountains([1,2])
+    console.log('fetched')
   },[])
 
 
-  const mountList = props.favoriteMountains.map((mount,i) =>{
+  const mountList = favoriteMountains.map((mount,i) =>{
     return<MountainCardContainer 
       key={i}
       mountain={mount}
