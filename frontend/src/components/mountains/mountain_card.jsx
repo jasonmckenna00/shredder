@@ -5,23 +5,20 @@ import mountain_default from '../../assets/images/mountain-default.jpg'
 import MCWeatherCard from './mc_weather_card';
 import { FAVORITE} from '../../utils/mountain_util';
 import { PlusCircleDotted, XCircle } from 'react-bootstrap-icons'
+import { useDispatch, useSelector } from 'react-redux';
+import { addFavoriteMountain, removeFavoriteMountain } from '../../actions/mountain_actions';
 
-
-const MountainCard = (props) => {
-  const {mountain, type, favoriteMountainIds, addFavoriteMountain, removeFavoriteMountain} = props
+const MountainCard = ({mountain, type}) => {
+  const dispatch = useDispatch()
+  const favoriteMountainIds = useSelector( state => Object.keys(state.favoriteMountains))
   const {id} = mountain
   const mountainId = id.toString()
-
-
 
   const getMountainCam = (resort_name, website_link) => {
     
     if (resort_name === "EPIC"){
       const epicCamLink = '/the-mountain/mountain-conditions/mountain-cams.aspx'
       const mountainCamUrl = website_link + epicCamLink
-      // let classes = 'fa fa-video-camera'
-      // return<i className="bi bi-camera-video h 20"></i>
-      // return <i className={classes} onClick={()=>window.open(mountainCamUrl, '_blank').focus()}></i>
       return <a href={mountainCamUrl} target="_blank" className='card-link' rel="noopener noreferrer">Snow Cams</a>
     }
     return null
@@ -29,12 +26,12 @@ const MountainCard = (props) => {
 
   const addToFavorites = () => {
     if (favoriteMountainIds.includes(mountainId)) return
-    addFavoriteMountain(mountainId)
+    dispatch(addFavoriteMountain(mountainId))
   }
 
   const removeFromFavorites = () => {
     if (favoriteMountainIds.includes(mountainId)){
-      removeFavoriteMountain(mountainId)
+      dispatch(removeFavoriteMountain(mountainId))
     }
   }
 

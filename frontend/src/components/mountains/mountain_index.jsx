@@ -1,7 +1,9 @@
 import React, { useEffect} from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import { withRouter } from 'react-router'
 import { INDEX } from '../../utils/mountain_util'
-import MountainCardContainer from '../mountains/mountain_card_container'
+import MountainCard from '../mountains/mountain_card'
+import { getAllMountains } from '../../actions/mountain_actions'
 // import no_image from '../../assets/images/video-not-working.png'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
@@ -30,24 +32,27 @@ import 'react-multi-carousel/lib/styles.css';
 //   }
 // };
 
-const MountainIndex = (props) => {
-  
+const MountainIndex = () => {
+  const dispatch = useDispatch()
+  const mountains = useSelector(state => Object.values(state.mountains))
+
   useEffect(() => {
-    if (props.mountains.length === 0){
-      props.getAllMountains()
+    if (mountains.length === 0){
+      dispatch(getAllMountains())
     }
     
-  }, [props.mountains])
+  }, [mountains, dispatch])
 
-  const mountList = props.mountains.map((mount,i) =>{
+  const mountList = mountains.map((mount,i) =>{
     // console.log(mount)
-    return<MountainCardContainer 
+    return<MountainCard 
       key={i}
       mountain={mount}
       type={INDEX}
       // className="legend"
       />
   })
+  
   
   return (
     <div className='featured-mountains'>

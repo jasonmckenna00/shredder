@@ -1,20 +1,24 @@
 import React, { useEffect} from 'react';
 import { withRouter } from 'react-router-dom';
-import MountainCardContainer from './mountain_card_container';
+import MountainCard from './mountain_card';
 import { FAVORITE } from '../../utils/mountain_util';
+import { useDispatch, useSelector } from 'react-redux';
+import { getFavoriteMountains } from '../../actions/mountain_actions';
 
-const MountainFavorites = ({getFavoriteMountains, favoriteMountains}) => {
+const MountainFavorites = () => { 
+  const dispatch = useDispatch()
+  const favoriteMountains = useSelector(state => Object.values(state.favoriteMountains))
 
-  
+
 
   useEffect(() => {
-    getFavoriteMountains([1,2])
-    console.log('fetched')
-  },[])
+    dispatch(getFavoriteMountains([3,2]))
+  },[dispatch])
 
-
+  // this is placing them in state order? add telluride after snow
+  // answer -> fave mountains is an obj, not pushing into arr
   const mountList = favoriteMountains.map((mount,i) =>{
-    return<MountainCardContainer 
+    return<MountainCard 
       key={i}
       mountain={mount}
       type={FAVORITE}

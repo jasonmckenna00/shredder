@@ -30,14 +30,9 @@ const MCWeatherCard = (props) => {
     })
   },[props.location])
 
-  useEffect(() => {
-    fetchWeather()
-  }, [fetchWeather])
-
-  
-  
-    
-  
+  // useEffect(() => {
+  //   fetchWeather()
+  // }, [fetchWeather])
 
   const forecastWeatherContainer = () => {
     const weatherItems = forecast.map( (weatherObj,i) => {
