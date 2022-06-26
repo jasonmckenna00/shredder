@@ -5,7 +5,7 @@ from .models import Location, Mountain, ResortCompany
 class ResortCompanySerializer(serializers.ModelSerializer):
   class Meta:
     model = ResortCompany
-    fields = ['website_link', 'resort_name']
+    fields = ['website_link', 'company_name']
 
 class LocationSerializer(serializers.ModelSerializer):
   class Meta:

@@ -10,7 +10,8 @@ import { addFavoriteMountain, removeFavoriteMountain } from '../../actions/mount
 
 const MountainCard = ({mountain, type}) => {
   const dispatch = useDispatch()
-  const favoriteMountainIds = useSelector( state => Object.keys(state.favoriteMountains))
+  // if you put a limit on the number of fav mountains, search becomes o(1)
+  const favoriteMountainsIds = useSelector( state => state.favoriteMountains.map(mnt => mnt.id))
   const {id} = mountain
   const mountainId = id.toString()
 
@@ -25,19 +26,20 @@ const MountainCard = ({mountain, type}) => {
   }
 
   const addToFavorites = () => {
-    if (favoriteMountainIds.includes(mountainId)) return
-    dispatch(addFavoriteMountain(mountainId))
+    debugger
+    if (favoriteMountainsIds.includes(mountain.id)) return
+    dispatch(addFavoriteMountain(mountain.id))
   }
 
   const removeFromFavorites = () => {
-    if (favoriteMountainIds.includes(mountainId)){
-      dispatch(removeFavoriteMountain(mountainId))
+    if (favoriteMountainsIds.includes(mountain.id)){
+      dispatch(removeFavoriteMountain(mountain.id))
     }
   }
 
-  const {name, website_link, location ,resort_company: {resort_name}} = mountain
+  const {name, website_link, location ,resort_company: {company_name}} = mountain
   const {state, city} = location
-  const mountainCam = getMountainCam(resort_name,website_link)
+  const mountainCam = getMountainCam(company_name,website_link)
 
   const favoriteAction = type === FAVORITE ? 
     <XCircle className='add-to-favorites-button' onClick={removeFromFavorites}/>:

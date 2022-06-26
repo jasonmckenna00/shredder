@@ -1,1 +1,110 @@
-[{"model": "mountains.resortcompany", "pk": 1, "fields": {"resort_name": "EPIC", "website_link": "https://www.epicpass.com/"}}, {"model": "mountains.location", "pk": 1, "fields": {"latitude": "40.6514", "longitude": "-111.5080", "city": "Park City", "state": "Utah"}}, {"model": "mountains.location", "pk": 2, "fields": {"latitude": "37.9363", "longitude": "-107.8466", "city": "Telluride", "state": "Colorado"}}, {"model": "mountains.location", "pk": 3, "fields": {"latitude": "42.9602", "longitude": "-72.9204", "city": "Dover", "state": "Vermont"}}, {"model": "mountains.location", "pk": 4, "fields": {"latitude": "45.212", "longitude": "-102.6", "city": "Vail", "state": "Colorado"}}, {"model": "mountains.location", "pk": 5, "fields": {"latitude": "72.717", "longitude": "43.4018", "city": "Ludlow", "state": "Vermont"}}, {"model": "mountains.mountain", "pk": 1, "fields": {"name": "Park City", "website_link": "https://www.parkcitymountain.com/", "location": 1, "resort_company": 1}}, {"model": "mountains.mountain", "pk": 2, "fields": {"name": "Telluride", "website_link": "https://tellurideskiresort.com/", "location": 2, "resort_company": 1}}, {"model": "mountains.mountain", "pk": 3, "fields": {"name": "Mt Snow", "website_link": "https://www.mountsnow.com/", "location": 3, "resort_company": 1}}, {"model": "mountains.mountain", "pk": 4, "fields": {"name": "Vail Ski Resort", "website_link": "", "location": 4, "resort_company": 1}}, {"model": "mountains.mountain", "pk": 5, "fields": {"name": "Okemo Mountain Resort", "website_link": "https://www.okemo.com/", "location": 5, "resort_company": 1}}]
+[
+    {
+        "model": "mountains.resortcompany",
+        "pk": 1,
+        "fields": {
+            "company_name": "EPIC",
+            "website_link": "https://www.epicpass.com/"
+        }
+    },
+    {
+        "model": "mountains.location",
+        "pk": 1,
+        "fields": {
+            "latitude": "40.6514",
+            "longitude": "-111.5080",
+            "city": "Park City",
+            "state": "Utah"
+        }
+    },
+    {
+        "model": "mountains.location",
+        "pk": 2,
+        "fields": {
+            "latitude": "37.9363",
+            "longitude": "-107.8466",
+            "city": "Telluride",
+            "state": "Colorado"
+        }
+    },
+    {
+        "model": "mountains.location",
+        "pk": 3,
+        "fields": {
+            "latitude": "42.9602",
+            "longitude": "-72.9204",
+            "city": "Dover",
+            "state": "Vermont"
+        }
+    },
+    {
+        "model": "mountains.location",
+        "pk": 4,
+        "fields": {
+            "latitude": "45.212",
+            "longitude": "-102.6",
+            "city": "Vail",
+            "state": "Colorado"
+        }
+    },
+    {
+        "model": "mountains.location",
+        "pk": 5,
+        "fields": {
+            "latitude": "72.717",
+            "longitude": "43.4018",
+            "city": "Ludlow",
+            "state": "Vermont"
+        }
+    },
+    {
+        "model": "mountains.mountain",
+        "pk": 1,
+        "fields": {
+            "name": "Park City",
+            "website_link": "https://www.parkcitymountain.com/",
+            "location": 1,
+            "resort_company": 1
+        }
+    },
+    {
+        "model": "mountains.mountain",
+        "pk": 2,
+        "fields": {
+            "name": "Telluride",
+            "website_link": "https://tellurideskiresort.com/",
+            "location": 2,
+            "resort_company": 1
+        }
+    },
+    {
+        "model": "mountains.mountain",
+        "pk": 3,
+        "fields": {
+            "name": "Mt Snow",
+            "website_link": "https://www.mountsnow.com/",
+            "location": 3,
+            "resort_company": 1
+        }
+    },
+    {
+        "model": "mountains.mountain",
+        "pk": 4,
+        "fields": {
+            "name": "Vail Ski Resort",
+            "website_link": "",
+            "location": 4,
+            "resort_company": 1
+        }
+    },
+    {
+        "model": "mountains.mountain",
+        "pk": 5,
+        "fields": {
+            "name": "Okemo Mountain Resort",
+            "website_link": "https://www.okemo.com/",
+            "location": 5,
+            "resort_company": 1
+        }
+    }
+]

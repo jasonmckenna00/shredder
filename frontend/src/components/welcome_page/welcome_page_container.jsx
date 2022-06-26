@@ -3,9 +3,9 @@ import { withRouter } from 'react-router-dom';
 import MountainFavorites from '../mountains/mountain_favorites'
 import MountainSearchBar from '../search_bar/mountain_search_bar';
 // import MountainIndexContainer from '../mountains/mountain_index_container' 
-import MountainIndex from '../mountains/mountain_index' 
+import FeaturedMountains from '../mountains/featured_moutains' 
 
-import MountainMapContainer from '../map/mountain_map_container';
+// import MountainMapContainer from '../map/mountain_map_container';
 const WelcomePageContainer = () => {
 
   
@@ -13,9 +13,9 @@ const WelcomePageContainer = () => {
     <div className='welcome-page-container'>
       Inside WelcomePageContainer
       <MountainSearchBar />
-      <MountainIndex />
+      {/* <FeaturedMountains /> */}
       <MountainFavorites />
-      <MountainMapContainer />
+      {/* <MountainMapContainer /> */}
     </div>
   )
 }               

@@ -15,8 +15,7 @@ const MountainFavorites = () => {
     dispatch(getFavoriteMountains([3,2]))
   },[dispatch])
 
-  // this is placing them in state order? add telluride after snow
-  // answer -> fave mountains is an obj, not pushing into arr
+  
   const mountList = favoriteMountains.map((mount,i) =>{
     return<MountainCard 
       key={i}

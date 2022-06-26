@@ -15,17 +15,20 @@ export const mountainReducer = function( state = {}, action) {
   }
 }
 
-export const favoriteMountainReducer = function (state = {}, action){
+export const favoriteMountainReducer = function (state = [], action){
   Object.freeze(state)
   switch(action.type){
     case GET_FAVORITE_MOUNTAINS:
-      return {...state, ..._.mapKeys(action.payload, 'id')}
+      return [...state, ...Object.values(action.payload)]
+      // return {...state, ..._.mapKeys(action.payload, 'id')}
     case ADD_FAVORITE_MOUNTAIN:
-      return {...state, [action.payload.id]: action.payload}
+      return [...state, action.payload]
+      // return {...state, [action.payload.id]: action.payload}
     case REMOVE_FAVORITE_MOUNTAIN:
-      const {[action.payload]: omit, ...newState } = state
+      // const {[action.payload]: omit, ...newState } = state
+      return state.filter(mnt => mnt.id !== action.payload)
       // debugger
-      return newState
+      // return newState
     default: return state;
     
   }

@@ -2,7 +2,7 @@ import React, { useEffect} from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { withRouter } from 'react-router'
 import { INDEX } from '../../utils/mountain_util'
-import MountainCard from '../mountains/mountain_card'
+import MountainCard from './mountain_card'
 import { getAllMountains } from '../../actions/mountain_actions'
 // import no_image from '../../assets/images/video-not-working.png'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -32,7 +32,12 @@ import 'react-multi-carousel/lib/styles.css';
 //   }
 // };
 
-const MountainIndex = () => {
+
+
+// 
+// http://docs.clientservice.onthesnow.com/docs/list_samples.html
+// 
+const FeaturedMountains = () => {
   const dispatch = useDispatch()
   const mountains = useSelector(state => Object.values(state.mountains))
 
@@ -68,11 +73,10 @@ const MountainIndex = () => {
       </Carousel>
     
     
-    
     </div> 
   )
 
 }
 
 
-export default withRouter(MountainIndex)
+export default withRouter(FeaturedMountains)

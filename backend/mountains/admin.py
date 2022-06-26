@@ -5,7 +5,7 @@ class MountainAdmin(admin.ModelAdmin):
   fields = ['name', 'location', 'website_link', 'resort_company']
   
 class ResortCompanyAdmin(admin.ModelAdmin):
-  fields = ['resort_name', 'website_link']
+  fields = ['company_name', 'website_link']
 
 class LocationAdmin(admin.ModelAdmin):
   fields = ['latitude', 'longitude', 'state', 'city']

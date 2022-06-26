@@ -1,0 +1,57 @@
+{
+    "49 Degrees North": {
+        "name": "49 Degrees North",
+        "location": {
+            "lat": "48.302353",
+            "lng": "-117.5640",
+            "state": "Washington",
+            "city": "Stevens County",
+            "country": "United States",
+            "country_code": "us"
+        }
+    },
+    "Afton Alps": {
+        "name": "Afton Alps",
+        "location": {
+            "lat": "44.854332",
+            "lng": "-92.79063",
+            "state": "Minnesota",
+            "city": "Washington County",
+            "country": "United States",
+            "country_code": "us"
+        }
+    },
+    "Alpine Meadows": {
+        "name": "Alpine Meadows",
+        "location": {
+            "lat": "39.148201",
+            "lng": "-120.1509",
+            "state": "California",
+            "city": "Placer County",
+            "country": "United States",
+            "country_code": "us"
+        }
+    },
+    "Alpine Mountain": {
+        "name": "Alpine Mountain",
+        "location": {
+            "lat": "41.114666",
+            "lng": "-75.22602",
+            "state": "Pennsylvania",
+            "city": "Price Township",
+            "country": "United States",
+            "country_code": "us"
+        }
+    },
+    "Alpine Valley": {
+        "name": "Alpine Valley",
+        "location": {
+            "lat": "41.526939",
+            "lng": "-81.25988",
+            "state": "Ohio",
+            "city": "Geauga County",
+            "country": "United States",
+            "country_code": "us"
+        }
+    }
+}
