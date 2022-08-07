@@ -11,7 +11,9 @@ class MountainViewSet(viewsets.ModelViewSet):
     search_fields = ['name',
       'resort_company__resort_name',
       'location__state',
-      'location__city'
+      'location__city',
+      'location__country',
+      'location__country_code'
       ]
     filterset_fields = { # api/Mountains?id__in=1,3
       'id' : ['in', 'exact']

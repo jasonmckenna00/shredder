@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'mountains',
     'corsheaders',
     'rest_framework',
-    
 ]
 
 MIDDLEWARE = [

@@ -1,11 +1,7 @@
-from audioop import add
 import json
-from typing import get_origin
 from geopy.geocoders import Nominatim
 
-
-
-
+from mountains.models import Location, Mountain
 
 
 geolocator = Nominatim(user_agent="shredder")
@@ -40,6 +36,38 @@ def create_resort_json():
 
     resort_json = open('resort_json.json', 'w')
     json.dump(resorts, resort_json)
+    # return resorts
 
-create_resort_json()
+# create_resort_json()
+def create_location(location):
+    new_location = Location (
+        latitude=location.get('lat'),
+        longitude=location.get('lng'),
+        city = location.get('city'),
+        state = location.get('state'),
+        country = location.get('country'),
+        code = location.get('country_code'),
+    )
+    return new_location
+
+
+
+def generate_seed_file():
+    f = open('resort_json.json')
+    data = json.load(f)
+    output = []
+    for key, mountain in data.items():
+        mountain_name = mountain.get('name')
+        location = mountain.get('location')
+        new_mountain = Mountain(
+            name=mountain_name,
+            location = create_location(location)
+        )
+        output.append(new_mountain)
+    
+    print(output)
+    
+
+
+generate_seed_file()
 # print(resorts)
