@@ -33,7 +33,6 @@ export const getFavoriteMountains = (mountainIds) => async dispatch => {
   }
 }
 
-//should add check if mountain already in state before api request
 export const addFavoriteMountain = (mountainId) => async dispatch => {
   try {
     const resp = await MountainUtil.fetchMountain(mountainId)

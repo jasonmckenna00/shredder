@@ -2,20 +2,19 @@ import React, { useEffect} from 'react';
 import { withRouter } from 'react-router-dom';
 import MountainCard from './mountain_card';
 import { FAVORITE } from '../../utils/mountain_util';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { getFavoriteMountains } from '../../actions/mountain_actions';
 
-const MountainFavorites = () => { 
-  const dispatch = useDispatch()
+
+const MountainFavorites = () => {
   const favoriteMountains = useSelector(state => Object.values(state.favoriteMountains))
-
-
+  const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(getFavoriteMountains([3,2]))
+    dispatch(getFavoriteMountains([1,2]))
+    console.log('fetchedFavMountains')
   },[dispatch])
 
-  
   const mountList = favoriteMountains.map((mount,i) =>{
     return<MountainCard 
       key={i}
