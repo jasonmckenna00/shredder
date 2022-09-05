@@ -60,7 +60,7 @@ const MountainCard = ({mountain, type}) => {
         </div>
         <div className='card-subtitle text-align-center text-muted h6 '>{city}, {state}</div>
         <img src={mountain_default} alt="" className='card-img-top'/>
-        {/* {type === FAVORITE && <MCWeatherCard location={location} />} */}
+        {type === FAVORITE && <MCWeatherCard location={location} />}
 
 
         <a href={website_link} target="_blank" className='card-link' rel="noopener noreferrer">Site</a>

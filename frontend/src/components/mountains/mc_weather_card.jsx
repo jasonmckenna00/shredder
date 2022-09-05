@@ -13,6 +13,7 @@ const MCWeatherCard = (props) => {
     let {latitude,longitude} = props.location
     const API_KEY = process.env.REACT_APP_API_KEY
     let urlBase = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly,minutely&units=imperial&appid=${API_KEY}`
+    urlBase = "./weatherItem.json"
     fetch(urlBase)
     .then( resp => {
       // setFetchAttempt(true)
@@ -23,6 +24,8 @@ const MCWeatherCard = (props) => {
           let forecast = daily.slice(0,numDays)
           setCurrWeather(current)
           setForecast(forecast)
+          console.log('Fetched Weather')
+          // console.log(JSON.stringify(weatherObj))
         })
       } else {
         console.log('Unable to get weather')
