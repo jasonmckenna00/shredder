@@ -12,7 +12,7 @@ const MountainFavorites = () => {
 
   useEffect(() => {
     dispatch(getFavoriteMountains([1,2]))
-    console.log('fetchedFavMountains')
+    // console.log('fetchedFavMountains')
   },[dispatch])
 
   const mountList = favoriteMountains.map((mount,i) =>{

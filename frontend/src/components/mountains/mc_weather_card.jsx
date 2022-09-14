@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import MCWeatherItem from './mc_weather_item'
 import {Button, Collapse} from 'react-bootstrap'
-
+import localWeatherJson from './weatherItem.json'
 
 const MCWeatherCard = (props) => {
   const [currWeather, setCurrWeather] = useState({})
@@ -13,24 +13,33 @@ const MCWeatherCard = (props) => {
     let {latitude,longitude} = props.location
     const API_KEY = process.env.REACT_APP_API_KEY
     let urlBase = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly,minutely&units=imperial&appid=${API_KEY}`
-    urlBase = "./weatherItem.json"
-    fetch(urlBase)
-    .then( resp => {
-      // setFetchAttempt(true)
-      if (resp.ok){
-        resp.json().then( weatherObj => {
-          let {current, daily} = weatherObj
-          let numDays = 3
-          let forecast = daily.slice(0,numDays)
-          setCurrWeather(current)
-          setForecast(forecast)
-          console.log('Fetched Weather')
-          // console.log(JSON.stringify(weatherObj))
-        })
-      } else {
-        console.log('Unable to get weather')
-      }
-    })
+    
+    if (true){
+      let {current, daily} = localWeatherJson
+      let numDays = 3
+      let forecast = daily.slice(0,numDays)
+      setCurrWeather(current)
+      setForecast(forecast)
+      console.log('Fetched Weather')
+    } else {
+      fetch(urlBase)
+      .then( resp => {
+        // setFetchAttempt(true)
+        if (resp.ok){
+          resp.json().then( weatherObj => {
+            let {current, daily} = weatherObj
+            let numDays = 3
+            let forecast = daily.slice(0,numDays)
+            setCurrWeather(current)
+            setForecast(forecast)
+            console.log('Fetched Weather')
+            // console.log(JSON.stringify(weatherObj))
+          })
+        } else {
+          console.log('Unable to get weather')
+        }
+      })
+    }
   },[props.location])
 
   useEffect(() => {
