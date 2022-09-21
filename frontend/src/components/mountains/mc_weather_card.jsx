@@ -14,7 +14,7 @@ const MCWeatherCard = (props) => {
     const API_KEY = process.env.REACT_APP_API_KEY
     let urlBase = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly,minutely&units=imperial&appid=${API_KEY}`
     
-    if (true){
+    if (true){ //remove in production
       let {current, daily} = localWeatherJson
       let numDays = 3
       let forecast = daily.slice(0,numDays)

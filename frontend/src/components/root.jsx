@@ -24,9 +24,6 @@ class Root extends React.Component{
         <HashRouter>
           <NavBar />
           <WelcomePageContainer />
-
-          <div className="dom-body">
-          </div>
         </HashRouter>
       </Provider>
     )

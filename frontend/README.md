@@ -1,3 +1,19 @@
+Items to complete:
+search mountains -> featured mountains becomes search container with slider-> option to add to favorites
+Styling -> Make cards skinnier in featured
+- photos I've taken at top, lightly faded
+- search
+
+Create Datatable for weather
+- One request every 4 Hours
+- Update table
+- UI Makes API request to database rather than   web UI
+
+
+
+
+
+
 # Getting Started with Create React App
 npm start
 
