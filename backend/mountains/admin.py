@@ -8,7 +8,7 @@ class ResortCompanyAdmin(admin.ModelAdmin):
   fields = ['company_name', 'website_link']
 
 class LocationAdmin(admin.ModelAdmin):
-  fields = ['latitude', 'longitude', 'state', 'city']
+  fields = ['latitude', 'longitude', 'state', 'city', 'country','country_code']
 
 admin.site.register(ResortCompany, ResortCompanyAdmin)
 admin.site.register(Mountain, MountainAdmin)

@@ -1,7 +1,9 @@
 import { ADD_FAVORITE_MOUNTAIN, 
   GET_ALL_MOUNTAINS, 
   GET_FAVORITE_MOUNTAINS, 
-  REMOVE_FAVORITE_MOUNTAIN } from "../actions/mountain_actions"
+  REMOVE_FAVORITE_MOUNTAIN,
+  SEARCH_MOUNTAINS,
+  CLEAR_SEARCH_MOUNTAINS } from "../actions/mountain_actions"
 import _ from "lodash";
 
 
@@ -30,4 +32,19 @@ export const favoriteMountainReducer = function (state = {}, action){
     
   }
 }
+
+export const searchMountainsReducer = function (state = {}, action){
+  Object.freeze(state)
+  switch(action.type){
+    case SEARCH_MOUNTAINS:
+      return {..._.mapKeys(action.payload, 'id')}
+    case CLEAR_SEARCH_MOUNTAINS:
+      return {}
+    default: return state;
+  }
+}
+
+
+
+
 

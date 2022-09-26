@@ -18,7 +18,6 @@
 
 .card {
   max-width: 20em;
-  
 }
 
 .card-title-header{
@@ -26,16 +25,37 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  text-align: center
+  text-align: -webkit-center;
+  height: 2em;
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+
 }
 
 .card-title-header h3{
   width: 100%; 
+  margin-bottom: 10;
+  display: block;/* or inline-block */
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow: hidden;
+  max-height: 2em;
+  line-height: 1em;
+  
+   
+}
+.card-title-header a{
+  text-decoration: none;
+  color: black;
 }
 
 .card-subtitle{
   text-align: center;
   margin-bottom: 3px !important;
+  display: -webkit-box;
+   -webkit-line-clamp: 1; /* number of lines to show */
+           line-clamp: 1; 
+   -webkit-box-orient: vertical;
 } 
 
 .welcome-page-container{
@@ -64,7 +84,7 @@
 .mountain-search-container{
   width: 25%;
   height: 100px;
-  border: 1px solid black; 
+  /* border: 1px solid black;  */
   position: absolute;
   right: 0;
   left: 0;
@@ -72,6 +92,18 @@
   bottom: 0;
   margin: auto;
   z-index: 1;
+}
+.search-icon {
+  text-indent: -999px;
+  overflow: hidden;
+  width: 40px;
+  padding: 0;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: inherit;
+  background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat center;
+  cursor: pointer;
+  background-color: white;
 }
 
 .featured-mountains-container{
@@ -84,6 +116,7 @@
 .featured-mountains {
   display: flex;
   flex-direction: row;
+  margin-left: 10px;
 }
 
 #map {
@@ -179,4 +212,5 @@
   opacity: 50%;
   
 }
+
 

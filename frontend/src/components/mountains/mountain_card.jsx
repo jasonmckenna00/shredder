@@ -1,9 +1,9 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import mountain_default from '../../assets/images/mountain-default.jpg'
-// import no_image from '../../assets/images/video-not-working.png'
+// import mountain_default from '../../assets/images/mountain-default.jpg'
+import no_image from '../../assets/images/video-not-working.png'
 import MCWeatherCard from './mc_weather_card';
-import { FAVORITE} from '../../utils/mountain_util';
+import { FAVORITE, } from '../../utils/mountain_util';
 import { PlusCircleDotted, XCircle } from 'react-bootstrap-icons'
 import { useDispatch, useSelector } from 'react-redux';
 import { addFavoriteMountain,  removeFavoriteMountain } from '../../actions/mountain_actions';
@@ -45,12 +45,13 @@ const MountainCard = ({mountain, type}) => {
   const {name, website_link, location ,resort_company: {resort_name}} = mountain
   const {state, city} = location
   const mountainCam = getMountainCam(resort_name,website_link)
+  const isFavorite = type === FAVORITE 
 
-  const favoriteAction = type === FAVORITE ? 
+  const favoriteAction = isFavorite ? 
     <XCircle className='add-to-favorites-button' onClick={removeFromFavorites}/>:
     <PlusCircleDotted className='add-to-favorites-button' onClick={addToFavorites}/>
 
-
+  
   return (
     <div className='card'>
       <div className='card-body'>
@@ -59,17 +60,17 @@ const MountainCard = ({mountain, type}) => {
           {favoriteAction}
         </div>
         <div className='card-subtitle text-align-center text-muted h6 '>{city}, {state}</div>
-        <img src={mountain_default} alt="" className='card-img-top'/>
+        <a href={website_link} target="_blank" className='card-link' rel="noopener noreferrer">
+          <img src={no_image} alt="" className='card-img-top'/>
+        </a>
         {type === FAVORITE && <MCWeatherCard location={location} />}
-
-
-        <a href={website_link} target="_blank" className='card-link' rel="noopener noreferrer">Site</a>
         {mountainCam}
 
       </div>
     </div>
   )
 }
+
 
 
 

@@ -13,6 +13,6 @@ router.register(r'ResortCompany', ResortCompanyViewSet, 'ResortCompany')
 urlpatterns = [
     path('', index),
     path('admin/', admin.site.urls),
-    path('api/', include(router.urls))
+    path('api/', include(router.urls)),
     # path('search/')
 ]

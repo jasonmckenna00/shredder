@@ -9,7 +9,7 @@ from .models import Mountain, ResortCompany, Location
 class MountainViewSet(viewsets.ModelViewSet):
     serializer_class = MountainSerializer
     search_fields = ['name',
-      'resort_company__resort_name',
+      '^resort_company__company_name',
       'location__state',
       'location__city',
       'location__country',

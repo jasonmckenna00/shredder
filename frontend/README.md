@@ -3,6 +3,12 @@ search mountains -> featured mountains becomes search container with slider-> op
 Styling -> Make cards skinnier in featured
 - photos I've taken at top, lightly faded
 - search
+reduce amount of info on search results
+remove slide animation when search item comes in
+
+fix favorite mountains container. It is extending page passed viewing area (scroll)
+
+get state code for locations. Need to update db table, reseed
 
 Create Datatable for weather
 - One request every 4 Hours
