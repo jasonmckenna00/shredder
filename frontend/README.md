@@ -1,12 +1,11 @@
 Items to complete:
-search mountains -> featured mountains becomes search container with slider-> option to add to favorites
-Styling -> Make cards skinnier in featured
-- photos I've taken at top, lightly faded
-- search
-reduce amount of info on search results
-remove slide animation when search item comes in
+COMPLETE = search mountains -> featured mountains becomes search container with slider-> option to add to favorites
+COMPLETE = fix favorite mountains container. It is extending page passed viewing area (scroll)
 
-fix favorite mountains container. It is extending page passed viewing area (scroll)
+fix favorite mountains forecase
+reduce amount of info received on search results
+remove slideout animation when search item comes in
+
 
 get state code for locations. Need to update db table, reseed
 

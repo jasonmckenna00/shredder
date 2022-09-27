@@ -8,7 +8,7 @@ const MountainSearchBar = () => {
   const dispatch = useDispatch()
   const handleSearch = (e) => {
     e.preventDefault()
-    dispatch(searchMountains(searchQuery))
+    dispatch(searchMountains(searchQuery))// wait for positive response before clearing search query
     setSearchQuery('')
   }
   

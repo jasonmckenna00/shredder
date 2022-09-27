@@ -31,7 +31,7 @@ class MCWeatherItem extends React.Component{
     const snowTotal = snow ? snow['1h'] : 0.0
 
     return(
-    <div className='mc-weather-item'>
+    <div>
         <div className='mc-weather-today'>
           <img src={icon} alt="" className='card-img-top weather-icon'/>
           <div className='weather-temp h3'>{temp}{'\u00b0'}</div>
@@ -52,17 +52,15 @@ class MCWeatherItem extends React.Component{
     const {min, max} = temp
     const time = new Date(dt * 1000)
     return(
-      <div className='card mc-weather-item'> 
-        <div className='card-body mc-weather-day'>
-          <img src={icon} alt="" className='card-img-top weather-icon'/>
-          <div className='mc-weather-today-temp'>
-            <p className='card-title h6'>{Math.floor(max)}{'\u00b0'}/</p>
-            <p className='card-subtitle h7'>{Math.floor(min)}{'\u00b0'}</p>
-          </div>
-          <p className='card-subtitle'>{this.getWeekDay(time)} {time.getDate()}</p>
+      
+      <div className='mc-weather-item'>
+        <p className='mb-0'>{this.getWeekDay(time).slice(0, 3)} {time.getDate()}</p>
+        <img src={icon} alt="" className='card-img-top weather-icon'/>
+        <div className='mc-weather-today-temp'>
+          <p className='card-title h6'>{Math.floor(max)}{'\u00b0'}/</p>
+          <p className='card-subtitle h7'>{Math.floor(min)}{'\u00b0'}</p>
         </div>
       </div>
-      // <div></div>
     )
     //show high and low
     //icon + description

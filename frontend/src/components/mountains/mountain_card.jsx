@@ -2,7 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 // import mountain_default from '../../assets/images/mountain-default.jpg'
 import no_image from '../../assets/images/video-not-working.png'
-import MCWeatherCard from './mc_weather_card';
+import MountainWeather from './mountain_weather';
 import { FAVORITE, } from '../../utils/mountain_util';
 import { PlusCircleDotted, XCircle } from 'react-bootstrap-icons'
 import { useDispatch, useSelector } from 'react-redux';
@@ -63,7 +63,7 @@ const MountainCard = ({mountain, type}) => {
         <a href={website_link} target="_blank" className='card-link' rel="noopener noreferrer">
           <img src={no_image} alt="" className='card-img-top'/>
         </a>
-        {type === FAVORITE && <MCWeatherCard location={location} />}
+        {type === FAVORITE && <MountainWeather location={location} />}
         {mountainCam}
 
       </div>

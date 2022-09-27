@@ -12,16 +12,12 @@ import MountainSearchResults from '../search_bar/mountain_search_results';
 const WelcomePageContainer = () => {
 
   const searchResults = useSelector(state => Object.values(state.searchMountains))
-  // const dispatch = useDispatch()
-
-  // useEffect(() => {
-  //   dispatch(searchMountains('asd'))
-  // },[dispatch])
+ 
+  
   return(
     <div className='welcome-page-container'>
       <Header />
-      {searchResults.length && <MountainSearchResults/>}
-      {/* <FeaturedMountains /> */}
+      {searchResults.length > 0 && <MountainSearchResults/>}
       <MountainFavorites /> 
       {/* <MountainMapContainer /> */}
     </div>

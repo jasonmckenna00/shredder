@@ -25,11 +25,7 @@ const MountainFavorites = () => {
   return(
   <div className='favorite-mountains'>
     <h3>Favorite Mountains</h3>
-    <div className='card-deck'>
-      
-      {mountList}
-    </div>
-
+    <div className='card-deck mr-0'>{mountList}</div>
   </div>
   )
 }
