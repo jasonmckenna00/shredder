@@ -18,6 +18,9 @@ export const fetchMultipleMountains = (mountainIds) =>{
 }
 
 export const fetchMountainsByString = (searchTerm) => {
-  
   return axios.get(`api/Mountains/?search=${searchTerm}`) 
+}
+
+export const fetchWeather = (locationId) => {
+  return axios.get('api/Mountains/weather?')
 }

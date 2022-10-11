@@ -8,35 +8,50 @@ const MountainWeather = (props) => {
   const [forecastOpen, setForecastOpen] = useState(false)
   // const [fetchAttempt, setFetchAttempt] = useState(false)
 
+  // const setWeatherState = () => {
+  //   if (props.weather){
+  //     setCurrWeather(props.weather)
+  //     setForecast(props.weather.forecast)
+    
+  // }
   const fetchWeather = useCallback( ()=> {
     let {latitude,longitude} = props.location
     const API_KEY = process.env.REACT_APP_API_KEY
+    const tester = false
+
+
     let urlBase = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly,minutely&units=imperial&appid=${API_KEY}`
-    
-    if (true){ //remove in production
+    if (props.weather){
+      // setCurrWeather(props.weather)
+      // // console.log(props.weather)
+      // console.log(currWeather)
+      // const {forecast} = props.weather 
+      // setForecast(forecast)
+    }
+    else if (tester){ //remove in production
       let {current, daily} = localWeatherJson
       let numDays = 3
       let forecast = daily.slice(0,numDays)
       setCurrWeather(current)
       setForecast(forecast)
     } else {
-      fetch(urlBase)
-      .then( resp => {
-        // setFetchAttempt(true)
-        if (resp.ok){
-          resp.json().then( weatherObj => {
-            let {current, daily} = weatherObj
-            let numDays = 3
-            let forecast = daily.slice(0,numDays)
-            setCurrWeather(current)
-            setForecast(forecast)
-            console.log('Fetched Weather')
-            // console.log(JSON.stringify(weatherObj))
-          })
-        } else {
-          console.log('Unable to get weather')
-        }
-      })
+      // fetch(urlBase)
+      // .then( resp => {
+      //   // setFetchAttempt(true)
+      //   if (resp.ok){
+      //     resp.json().then( weatherObj => {
+      //       let {current, daily} = weatherObj
+      //       let numDays = 3
+      //       let forecast = daily.slice(0,numDays)
+      //       setCurrWeather(current)
+      //       setForecast(forecast)
+      //       console.log('Fetched Weather')
+      //       // console.log(JSON.stringify(weatherObj))
+      //     })
+      //   } else {
+      //     console.log('Unable to get weather')
+      //   }
+      // })
     }
   },[props.location])
 
@@ -58,16 +73,16 @@ const MountainWeather = (props) => {
     return arr[(val % 16)];
   }
 
-  const forecastWeatherItems = forecast.map( (weatherObj,i) => {
+  const forecastWeatherItems = props.weather.forecast.slice(0,3).map( (weatherObj,i) => {
     return <MountainWeatherForecastItem weatherObject={weatherObj} key={i} />
   })
 
 
-  let {temp, snow ,wind_speed, wind_deg, weather} = currWeather || {}
-  if (!weather) return null
-  let description = weather[0]['description']
+  let {temperature, snow ,wind_speed, wind_deg, weather_description} = props.weather || {}
+  if (!weather_description) return null
+  let description = weather_description
   description = captitalizeString(description)
-  temp = Math.floor(temp)
+  let temp = Math.floor(temperature)
   wind_speed = Math.floor(wind_speed)
   const snowTotal = snow ? snow['1h'] : 0.0
 

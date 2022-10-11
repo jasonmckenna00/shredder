@@ -7,8 +7,7 @@ const Header = () => {
   return (
     <div className="header">
       <MountainSearchBar />
-      <div className="header-img">
-      </div>
+      <div className="header-img"></div>
       <div className="header-gradient"></div>
     </div>
   )

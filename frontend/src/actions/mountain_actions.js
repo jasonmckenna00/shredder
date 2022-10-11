@@ -6,6 +6,8 @@ export const ADD_FAVORITE_MOUNTAIN = 'ADD_FAVORITE_MOUNTAIN'
 export const REMOVE_FAVORITE_MOUNTAIN = "REMOVE_FAVORITE_MOUNTAIN"
 export const SEARCH_MOUNTAINS = 'SEARCH_MOUNTAINS'
 export const CLEAR_SEARCH_MOUNTAINS = 'CLEAR_SEARCH_MOUNTAINS'
+export const GET_WEATHER = 'GET_WEATHER'
+
 
 
 export const getAllMountains = () => async dispatch => {
@@ -59,6 +61,15 @@ export const searchMountains = (searchTerm) => async dispatch => {
     
     const resp = await MountainUtil.fetchMountainsByString(searchTerm)
     return dispatch({type: SEARCH_MOUNTAINS, payload: resp.data})
+  } catch (err) {
+    return console.log(err)
+  }
+}
+
+export const getWeather = (locationId) => async dispatch =>{
+  try{
+    const resp = await MountainUtil.fetchWeather(locationId)
+    return dispatch({type: GET_WEATHER, payload: resp.data})
   } catch (err) {
     return console.log(err)
   }

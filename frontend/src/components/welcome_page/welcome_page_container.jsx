@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 // import { useDispatch } from "react-redux";
 
 // import MountainSearchBar from '../search_bar/mountain_search_bar';
-// import MountainMapContainer from '../map/mountain_map_container';
+import MountainMapContainer from '../map/mountain_map_container';
 // import FeaturedMountains from '../mountains/featured_mountains'
 import Header from '../header/header';
 import MountainSearchResults from '../search_bar/mountain_search_results';

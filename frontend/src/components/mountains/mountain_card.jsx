@@ -42,7 +42,7 @@ const MountainCard = ({mountain, type}) => {
     }
   }
 
-  const {name, website_link, location ,resort_company: {resort_name}} = mountain
+  const {name, website_link, location ,resort_company: {resort_name}, weather} = mountain
   const {state, city} = location
   const mountainCam = getMountainCam(resort_name,website_link)
   const isFavorite = type === FAVORITE 
@@ -63,7 +63,7 @@ const MountainCard = ({mountain, type}) => {
         <a href={website_link} target="_blank" className='card-link' rel="noopener noreferrer">
           <img src={no_image} alt="" className='card-img-top'/>
         </a>
-        {type === FAVORITE && <MountainWeather location={location} />}
+        {type === FAVORITE && <MountainWeather location={location} weather={weather}/>}
         {mountainCam}
 
       </div>
