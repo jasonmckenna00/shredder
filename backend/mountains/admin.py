@@ -8,7 +8,7 @@ class ResortCompanyAdmin(admin.ModelAdmin):
   fields = ['company_name', 'website_link']
 
 class LocationAdmin(admin.ModelAdmin):
-  fields = ['latitude', 'longitude', 'state', 'city', 'country','country_code']
+  fields = ['latitude', 'longitude', 'state', 'city', 'country','country_code', 'state_code']
 
 class WeatherAdmin(admin.ModelAdmin):
   fields = ['temperature', 'feels_like', 'humidity', 'visibility', 'wind_speed', 'wind_deg','weather_code',

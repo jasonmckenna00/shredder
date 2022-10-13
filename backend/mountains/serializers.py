@@ -10,7 +10,7 @@ class ResortCompanySerializer(serializers.ModelSerializer):
 class LocationSerializer(serializers.ModelSerializer):
   class Meta:
     model = Location
-    fields = [ 'id','latitude', 'longitude', 'state', 'city', 'country', 'country_code']
+    fields = [ 'id','latitude', 'longitude', 'state', 'state_code','city', 'country', 'country_code']
 
 
 class WeatherSerializer(serializers.ModelSerializer):

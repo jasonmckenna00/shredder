@@ -1,3 +1,4 @@
+from unittest.util import _MAX_LENGTH
 from django.db import models
 from django.core.validators import MinLengthValidator
 from django.db.models.enums import Choices, TextChoices
@@ -69,6 +70,7 @@ class Location(models.Model):
   latitude = models.CharField(max_length=10, blank=True)
   longitude = models.CharField(max_length=10, blank=True)
   state = models.CharField(max_length=20, choices=StateName.choices, default=StateName.COLORADO)
+  state_code = models.CharField(max_length=2, blank=True)
   city = models.CharField(max_length=60, blank=True)
   country = models.CharField(max_length=60, blank=True)
   country_code = models.CharField(max_length=2, blank=True)

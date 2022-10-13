@@ -1,6 +1,7 @@
 import json
 from geopy.geocoders import Nominatim
 import uuid
+from state_codes import us_state_to_abbrev
 # from .models import Location, Mountain, ResortCompany
 # import models
 
@@ -11,17 +12,18 @@ import uuid
 
 geolocator = Nominatim(user_agent="shredder")
 def get_location_data(lat, long):
-
+    
     location = geolocator.reverse(lat+ ','+long)
     address = location.raw['address']
-
     county = address.get('county', '')
     city = address.get('city', county)
     state = address.get('state', '')
+    state_code = us_state_to_abbrev[state]
     country = address.get('country', '')
     code = address.get('country_code')
     return {'latitude': lat, 'longitude': long, 
-        'state': state, 'city': city,
+        'state': state, 'state_code': state_code,
+        'city': city,
         'country': country, 'country_code': code}
 
 
@@ -41,18 +43,16 @@ def create_resort_json():
             resorts.append({ 'name': resort_name, 'location' : location})
 
 
-    resort_json = open('resort_json.json', 'w')
-    # locs_list = open('locs_list.json', 'w')
-    # json.dump(locs, locs_list)
+    resort_json = open('resort_locations.json', 'w')
     json.dump(resorts, resort_json)
-    # return resorts
 
-create_resort_json()
+# create_resort_json()
 
 
 def generate_seed_file():
-    f = open('resort_json.json')
-    data = json.load(f)
+
+    f = open('resort_locations.json')
+    location_data = json.load(f)
     seed = []
     
     resort_obj = {
@@ -63,11 +63,15 @@ def generate_seed_file():
         "website_link": "https://www.epicpass.com/"
       }
     }
+    f = open('weather_template.json')
+    weather_obj = json.loads(f.read())
+    seed.append(weather_obj[0])
+        
     seed.append(resort_obj)
     
     location_count = 1
     mountain_count = 1
-    for mountain in data: 
+    for mountain in location_data: 
       location_obj = {
         'model': "mountains.location",
         "pk": location_count,
@@ -81,7 +85,8 @@ def generate_seed_file():
             "name": mountain.get('name'),
             "website_link": "",
             "location": location_count,
-            "resort_company": 1
+            "resort_company": 1,
+            "weather": 1
         }
       }
       location_count += 1
@@ -89,64 +94,11 @@ def generate_seed_file():
       
       
       seed.append(mountain_obj)
-      new_seed = open('new_seed.json', 'w')
+      new_seed = open('new_seed_weather.json', 'w')
       json.dump(seed, new_seed)
       
       
       
-      
-      # locat = Location.objects.create(mountain.location)
-      # resort_company = ResortCompany.objects.get(company_name='EPIC')
-      # mountain = Mountain.objects.create(location = locat,  resort_company= resort_company)
-#     for key, mountain in data.items():
-#         mountain_name = mountain.get('name')
-#         location = mountain.get('location')
-#         new_mountain = Mountain(
-#             name=mountain_name,
-#             location = create_location(location)
-#         )
-#         output.append(new_mountain)
 
 
 generate_seed_file()
-
-# def create_location(location):
-#     loc = {
-      
-#     }
-#         latitude=location.get('lat'),
-#         longitude=location.get('lng'),
-#         city = location.get('city'),
-#         state = location.get('state'),
-#         country = location.get('country'),
-#         country_code = location.get('country_code'),
-    
-#     return new_location
-
-
-
-# def generate_seed_file():
-#     f = open('resort_json.json')
-#     data = json.load(f)
-#     output = []
-#     for key, mountain in data.items():
-#         mountain_name = mountain.get('name')
-#         location = mountain.get('location')
-#         new_mountain = Mountain(
-#             name=mountain_name,
-#             location = create_location(location)
-#         )
-#         output.append(new_mountain)
-    
-#     print(output)
-    
-
-# special DeserializedObject instances that wrap a created – but unsaved – object and any associated relationship data.
-# Calling DeserializedObject.save() saves the object to the database
-
-
-
-
-
-# generate_seed_file()
-# print(resorts)

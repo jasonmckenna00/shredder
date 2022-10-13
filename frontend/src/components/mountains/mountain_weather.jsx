@@ -6,35 +6,19 @@ const MountainWeather = (props) => {
   const [currWeather, setCurrWeather] = useState({})
   const [forecast, setForecast] = useState([])
   const [forecastOpen, setForecastOpen] = useState(false)
-  // const [fetchAttempt, setFetchAttempt] = useState(false)
-
-  // const setWeatherState = () => {
-  //   if (props.weather){
-  //     setCurrWeather(props.weather)
-  //     setForecast(props.weather.forecast)
-    
-  // }
+  
   const fetchWeather = useCallback( ()=> {
-    let {latitude,longitude} = props.location
-    const API_KEY = process.env.REACT_APP_API_KEY
-    const tester = false
-
-
-    let urlBase = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly,minutely&units=imperial&appid=${API_KEY}`
-    if (props.weather){
-      // setCurrWeather(props.weather)
-      // // console.log(props.weather)
-      // console.log(currWeather)
-      // const {forecast} = props.weather 
-      // setForecast(forecast)
-    }
-    else if (tester){ //remove in production
+    if (!props.weather){
       let {current, daily} = localWeatherJson
       let numDays = 3
       let forecast = daily.slice(0,numDays)
       setCurrWeather(current)
       setForecast(forecast)
-    } else {
+    }
+      // let {latitude,longitude} = props.location
+      // const API_KEY = process.env.REACT_APP_API_KEY
+      // let urlBase = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly,minutely&units=imperial&appid=${API_KEY}`
+    
       // fetch(urlBase)
       // .then( resp => {
       //   // setFetchAttempt(true)
@@ -52,8 +36,9 @@ const MountainWeather = (props) => {
       //     console.log('Unable to get weather')
       //   }
       // })
-    }
+    
   },[props.location])
+
 
   useEffect(() => {
     fetchWeather()
@@ -79,15 +64,17 @@ const MountainWeather = (props) => {
 
 
   let {temperature, snow ,wind_speed, wind_deg, weather_description} = props.weather || {}
-  if (!weather_description) return null
-  let description = weather_description
-  description = captitalizeString(description)
+  if (!weather_description) {
+    console.error('Unable to get weather')
+    return null
+  }
+  let description = captitalizeString(weather_description)
   let temp = Math.floor(temperature)
   wind_speed = Math.floor(wind_speed)
   const snowTotal = snow ? snow['1h'] : 0.0
 
   
-
+  
   return (
     <>
       <div className='mc-weather-today'>
