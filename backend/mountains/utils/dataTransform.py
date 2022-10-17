@@ -18,7 +18,7 @@ def get_location_data(lat, long):
     county = address.get('county', '')
     city = address.get('city', county)
     state = address.get('state', '')
-    state_code = us_state_to_abbrev[state]
+    state_code = us_state_to_abbrev[state] if state in us_state_to_abbrev else ""
     country = address.get('country', '')
     code = address.get('country_code')
     return {'latitude': lat, 'longitude': long, 
@@ -33,7 +33,7 @@ def create_resort_json():
     resorts = []
     locs = []
     for index, line in enumerate(resorts_location_file.readlines()): 
-        if (index < 5): #limit content
+        if (index < 20): #limit content
             line_list = line.split(',')
             reformated = [line_item.strip('"') for line_item in line_list] # file needed quotes removed
             resort_name, _, latitude, longitude = reformated
@@ -46,7 +46,7 @@ def create_resort_json():
     resort_json = open('resort_locations.json', 'w')
     json.dump(resorts, resort_json)
 
-# create_resort_json()
+create_resort_json()
 
 
 def generate_seed_file():

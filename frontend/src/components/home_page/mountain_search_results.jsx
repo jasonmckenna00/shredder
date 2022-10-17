@@ -11,7 +11,6 @@ const MountainSearchResults = () => {
   const searchResults = useSelector(state => Object.values(state.searchMountains)) //coming from welcome page container
   // const { height, width } = useWindowDimensions();
   const mountainSearchList = searchResults.map( (mount, i)=>{
-    // console.log(mount)
     return (
       <SwiperSlide key={i}>
         <MountainCard 
@@ -29,8 +28,12 @@ const MountainSearchResults = () => {
   const numSlidesPerView = mountCount < 5 ? mountCount : 5
   
   return(
-    <div className="featured-mountains-container mountain-search-results-container">
-      <h3>Search Results</h3>
+    <div className="featured-mountains-container ">
+      <div className='container-header'>
+        <h3>Top Results</h3>
+        <h6>View All</h6>
+      </div>
+      
       <div className="featured-mountains">
         <Swiper 
           slidesPerView={numSlidesPerView}

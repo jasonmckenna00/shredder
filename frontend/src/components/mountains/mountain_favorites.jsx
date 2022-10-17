@@ -1,5 +1,5 @@
 import React, { useEffect} from 'react';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import MountainCard from './mountain_card';
 import { FAVORITE } from '../../utils/mountain_util';
 import { useSelector, useDispatch } from 'react-redux';
@@ -11,21 +11,27 @@ const MountainFavorites = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(getFavoriteMountains([1,2]))
+    dispatch(getFavoriteMountains([1,2,3,4,5,6,7,8,9,10,11,12,13]))
     // console.log('fetchedFavMountains')
   },[dispatch])
 
-  const mountList = favoriteMountains.map((mount,i) =>{
+  const mountList = favoriteMountains.slice(0,5).map((mount,i) =>{
     return<MountainCard 
       key={i}
       mountain={mount}
       type={FAVORITE}
       />
   })
+
+  
   return(
-  <div className='favorite-mountains'>
-    <h3>Favorite Mountains</h3>
-    <div className='card-deck mr-0'>{mountList}</div>
+  <div className='favorite-mountains-container mt-5'>
+    <div className='container-header'>
+      <h3>Favorite Mountains</h3>
+      <Link to={'/favorites'}><h6>View All</h6></Link>
+      
+    </div>
+    <div className='favorite-mountains' >{mountList}</div>
   </div>
   )
 }

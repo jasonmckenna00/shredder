@@ -19,23 +19,58 @@ const FeaturedMountains = () => {
   const mountains = useSelector(state => Object.values(state.mountains))
   const dispatch = useDispatch()
 
+  // const getLocation = useCallback(() =>{
+  //   if (navigator.geolocation) {
+  //     navigator.geolocation.getCurrentPosition(showPosition, showError);
+  //   } else { 
+  //     console.error("Geolocation is not supported by this browser.")
+  //   }
+  // },[navigator.geolocation])
+
+
   useEffect(() => {
+    
     if (mountains.length === 0){
+      navigator.geolocation.getCurrentPosition(function(position){
+        // const [lat, long] = [position.coords.latitude, position.coords.longitude]
+        console.log('featured-mountains')
+        
+
+      })
       dispatch(getAllMountains())
     }
     
   }, [mountains, dispatch])
 
+  
+
+  // function showError(error) {
+  //   switch(error.code) {
+  //     case error.PERMISSION_DENIED:
+  //       console.error("User denied the request for Geolocation.")
+  //       break;
+  //     case error.POSITION_UNAVAILABLE:
+  //       console.error("Location information is unavailable.")
+  //       break;
+  //     case error.TIMEOUT:
+  //       console.error("The request to get user location timed out.")
+  //       break;
+  //     case error.UNKNOWN_ERROR:
+  //       console.error("An unknown error occurred.")
+  //       break;
+  //   }
+  // }
+
+
   const mountList = mountains.map((mount,i) =>{
     return(
       <SwiperSlide key={i}>
-        
         <MountainCard 
-              key={i}
-              mountain={mount}
-              type={INDEX}
-              className='swiper-slide'
-            />
+            key={mount.id}
+            mountain={mount}
+            type={INDEX}
+            className='swiper-slide'
+          />
       </SwiperSlide>
             
 
@@ -43,15 +78,13 @@ const FeaturedMountains = () => {
   })
   
 
-
+  
+  
   return (
     <div className='featured-mountains-container'>
       <h3>Featured Mountains</h3>
       
-      
-
       <Swiper
-        
         slidesPerView={3}
         spaceBetween={0}
         slidesPerGroup={3}
@@ -65,7 +98,7 @@ const FeaturedMountains = () => {
           delay: 10000,
           disableOnInteraction: false
         }}
-        navigation={false}
+        navigation={true}
         // modules={[Pagination, Navigation, Autoplay]}
         modules={[Pagination, Navigation, Autoplay]}
 

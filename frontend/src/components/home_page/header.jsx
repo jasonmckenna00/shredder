@@ -1,5 +1,5 @@
 import { withRouter } from "react-router-dom"
-import MountainSearchBar from "../search_bar/mountain_search_bar"
+import MountainSearchBar from "./mountain_search_bar"
 
 
 const Header = () => {

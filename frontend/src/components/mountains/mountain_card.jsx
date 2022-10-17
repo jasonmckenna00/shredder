@@ -53,7 +53,7 @@ const MountainCard = ({mountain, type}) => {
 
   
   return (
-    <div className='card'>
+    <div className='card mt-2 mr-2'>
       <div className='card-body'>
         <div className='card-title card-title-header'>
           <h3>{name}</h3>
