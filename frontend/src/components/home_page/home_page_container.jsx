@@ -1,6 +1,6 @@
 import React  from 'react';
 import { withRouter } from 'react-router-dom';
-import MountainFavorites from '../mountains/mountain_favorites'
+import FavoriteMountainsHome from '../mountains/favorite_mountains_home'
 import { useSelector } from "react-redux";
 // import { useDispatch } from "react-redux";
 
@@ -15,15 +15,15 @@ const HomePage = () => {
  
   const searchOrFeatured = searchResults.length > 0 ? <MountainSearchResults/> : <FeaturedMountains />
   return(
-    <div className='welcome-page-container'>
+    <main className='welcome-page-container'>
       <Header />
       <div className='content'>
         {searchOrFeatured}
-        <MountainFavorites /> 
+        <FavoriteMountainsHome /> 
 
       </div>
       {/* <MountainMapContainer /> */}
-    </div>
+    </main>
   )
 }               
 

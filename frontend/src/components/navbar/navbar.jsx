@@ -1,26 +1,26 @@
 import React from 'react';
+import logo from '../../assets/images/logo.png'
 
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 const NavBar = () => {
- return(
-    // <div className='navbar'>
-    //   <ul className="nav nav-tabs">
-    //     <li className="nav-item">
-    //       <a className="nav-link active" aria-current="page" href="#">Active</a>
-    //     </li>
-    //     <li className="nav-item">
-    //       <a className="nav-link" href="#">Link</a>
-    //     </li>
-    //     <li className="nav-item">
-    //       <a className="nav-link" href="#">Link</a>
-    //     </li>
-    //     <li className="nav-item">
-    //       <a className="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-    //     </li>
-    //   </ul>
-    // </div>
-    <h1>nav</h1>
+ return( // concvert to ul
+    <nav className='default-navbar'>
+      <div className='boxed'>
+        <Link to={'/'} className="navbar-brand">
+          <img src={logo} width="30" height="30" alt=""/>
+        </Link>
+      </div>
+      <ul className='nav-pages'> 
+        <li className='nav-tab'>
+          <Link to={'/favorites'}><h6 >Favorites</h6></Link>
+        </li>
+      </ul>
+      <div className='boxed'> login area/ profile</div>
+
+    </nav>
+    
+
   )
 }
 

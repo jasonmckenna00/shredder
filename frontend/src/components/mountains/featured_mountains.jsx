@@ -81,7 +81,7 @@ const FeaturedMountains = () => {
   
   
   return (
-    <div className='featured-mountains-container'>
+    <section className='featured-mountains-container'>
       <h3>Featured Mountains</h3>
       
       <Swiper
@@ -107,7 +107,7 @@ const FeaturedMountains = () => {
         {mountList}
       </Swiper>
 
-    </div> 
+    </section> 
   )
 }
 

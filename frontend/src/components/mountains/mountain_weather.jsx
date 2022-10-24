@@ -2,7 +2,8 @@ import React, { useCallback, useEffect, useState } from 'react'
 import {Button, Collapse} from 'react-bootstrap'
 import localWeatherJson from './weatherItem.json'
 import icon from '../../assets/icons/unknown.png';
-const MountainWeather = (props) => {
+export const MountainWeather = (props) => {
+  const {hideForecast = false} = props
   const [currWeather, setCurrWeather] = useState({})
   const [forecast, setForecast] = useState([])
   const [forecastOpen, setForecastOpen] = useState(false)
@@ -10,7 +11,7 @@ const MountainWeather = (props) => {
   const fetchWeather = useCallback( ()=> {
     if (!props.weather){
       let {current, daily} = localWeatherJson
-      let numDays = 3
+      let numDays = props.numDays
       let forecast = daily.slice(0,numDays)
       setCurrWeather(current)
       setForecast(forecast)
@@ -37,7 +38,7 @@ const MountainWeather = (props) => {
       //   }
       // })
     
-  },[props.location])
+  },[])
 
 
   useEffect(() => {
@@ -58,11 +59,6 @@ const MountainWeather = (props) => {
     return arr[(val % 16)];
   }
 
-  const forecastWeatherItems = props.weather.forecast.slice(0,3).map( (weatherObj,i) => {
-    return <MountainWeatherForecastItem weatherObject={weatherObj} key={i} />
-  })
-
-
   let {temperature, snow ,wind_speed, wind_deg, weather_description} = props.weather || {}
   if (!weather_description) {
     console.error('Unable to get weather')
@@ -73,7 +69,24 @@ const MountainWeather = (props) => {
   wind_speed = Math.floor(wind_speed)
   const snowTotal = snow ? snow['1h'] : 0.0
 
-  
+  const forecastWeatherItems = props.weather.forecast.slice(0,props.numDays).map( (weatherObj,i) => {
+    return <MountainWeatherForecastItem weatherObject={weatherObj} key={i} />
+  })
+
+  const showForecast = hideForecast ? <></> : <>
+    <Button 
+        onClick={() => setForecastOpen(!forecastOpen)}
+        aria-controls="example-collapse-text"
+        aria-expanded={forecastOpen}
+      >
+        Forecast
+      </Button>
+      <Collapse in={forecastOpen}>
+        <div className='mc-weather-forecast'> 
+          {forecastWeatherItems}
+        </div>
+      </Collapse>
+  </>
   
   return (
     <>
@@ -86,24 +99,13 @@ const MountainWeather = (props) => {
           <p className='weather-conditions-desc h6'>{description}</p>
         </div>
       </div>
-      <Button 
-        onClick={() => setForecastOpen(!forecastOpen)}
-        aria-controls="example-collapse-text"
-        aria-expanded={forecastOpen}
-      >
-        Forecast
-      </Button>
-      <Collapse in={forecastOpen}>
-        <div className='mc-weather-forecast'> 
-          {forecastWeatherItems}
-        </div>
-      </Collapse>
+      {showForecast}
     </>
   )
 
 }
 
-const MountainWeatherForecastItem = ({weatherObject}) => {
+export const MountainWeatherForecastItem = ({weatherObject}) => {
     const getWeekDay = (timeObj) => {
       let dayNum = timeObj.getDay()
       const daysOfWeek = ['Sun','Mon', 'Tues', 'Wed', 'Thurs','Fri','Sat']
@@ -115,7 +117,7 @@ const MountainWeatherForecastItem = ({weatherObject}) => {
 
     return <>
       <div className='mc-weather-item'>
-        <p className='mb-0'>{getWeekDay(time).slice(0, 3)} {time.getDate()}</p>
+        <p className='mb-0'>{getWeekDay(time)} {time.getDate()}</p>
         <img src={icon} alt="" className='card-img-top weather-icon'/>
         <div className='mc-weather-today-temp'>
           <p className='card-title h6'>{Math.floor(max)}{'\u00b0'}/</p>
@@ -127,5 +129,3 @@ const MountainWeatherForecastItem = ({weatherObject}) => {
     
 }
 
-
-export default MountainWeather

@@ -20,8 +20,6 @@ const MountainSearchResults = () => {
           />
       </SwiperSlide>
     )
-    
-    
   })
   // console.log(mountainSearchList.length)
   const mountCount = mountainSearchList.length

@@ -5,8 +5,8 @@ import store from "../store";
 import '../styles/app.css';
 import NavBar from './navbar/navbar';
 // import { createBrowserRouter } from 'react-router-dom'
-import HomePage from './home_page/home_page_container';
-import FavoriteMountainsIndex from './mountains/mountain_favorites_index'
+import HomePageContainer from './home_page/home_page_container';
+import FavoritesPageContainer from './favorites_page/favorites_page_container'
 // const router = createBrowserRouter([
 //     {path:'/', element:<HomePage />}
 //   ])
@@ -18,8 +18,8 @@ class Root extends React.Component{
         <BrowserRouter>
           <NavBar />
           <Switch>
-            <Route exact path='/' component={HomePage}/>
-            <Route path='/favorites' component={FavoriteMountainsIndex} />
+            <Route exact path='/' component={HomePageContainer}/>
+            <Route path='/favorites' component={FavoritesPageContainer} />
           </Switch>
         
         </BrowserRouter>

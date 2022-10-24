@@ -18,7 +18,8 @@ def get_location_data(lat, long):
     county = address.get('county', '')
     city = address.get('city', county)
     state = address.get('state', '')
-    state_code = us_state_to_abbrev[state] if state in us_state_to_abbrev else ""
+    state_code = us_state_to_abbrev.get(state,"")
+    # state_code = us_state_to_abbrev[state] if state in us_state_to_abbrev else ""
     country = address.get('country', '')
     code = address.get('country_code')
     return {'latitude': lat, 'longitude': long, 

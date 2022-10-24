@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getFavoriteMountains } from '../../actions/mountain_actions';
 
 
-const MountainFavorites = () => {
+const FavoriteMountainsHome = () => {
   const favoriteMountains = useSelector(state => Object.values(state.favoriteMountains))
   const dispatch = useDispatch()
 
@@ -25,18 +25,18 @@ const MountainFavorites = () => {
 
   
   return(
-  <div className='favorite-mountains-container mt-5'>
+  <section className='favorite-mountains-abridged mt-5'>
     <div className='container-header'>
       <h3>Favorite Mountains</h3>
       <Link to={'/favorites'}><h6>View All</h6></Link>
       
     </div>
     <div className='favorite-mountains' >{mountList}</div>
-  </div>
+  </section>
   )
 }
 
 
 
 
-export default withRouter(MountainFavorites)
+export default withRouter(FavoriteMountainsHome)
