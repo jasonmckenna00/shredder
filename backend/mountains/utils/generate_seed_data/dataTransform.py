@@ -40,6 +40,7 @@ def create_resort_json():
             resort_name, _, latitude, longitude = reformated
             longitude = longitude.rstrip('"\n')
             location = get_location_data(latitude, longitude)
+            #check resort_company
             locs.append(location)
             resorts.append({ 'name': resort_name, 'location' : location})
 
@@ -48,6 +49,11 @@ def create_resort_json():
     json.dump(resorts, resort_json)
 
 create_resort_json()
+
+
+
+
+
 
 
 def generate_seed_file():
@@ -102,4 +108,4 @@ def generate_seed_file():
       
 
 
-generate_seed_file()
+# generate_seed_file()

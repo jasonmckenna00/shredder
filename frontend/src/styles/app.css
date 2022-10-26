@@ -167,27 +167,27 @@
   max-width: 75px;
   height: auto;
 }
-.mc-weather-item .weather-icon{
+.weather-item .weather-icon{
   max-width: 50px;
   height: auto;
   display: flex;
   background-color: transparent;
 }
 
-.mc-weather-forecast{
+.weather-forecast{
   margin-top: 10px;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
 }
 
-.mc-weather-today-temp{
+.weather-today-temp{
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
-.mc-weather-today{
+.weather-today{
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -253,12 +253,12 @@
   height: 300px;
 }
 
-#favorite-mountain-index{
+#favorite-mou ntain-index{
   display: flex;
   flex-direction: column;
 }
 
-#favorite-mountain-index-container{
+#favorite-mountain-index-items{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -274,9 +274,44 @@
 }
 
 
-.favorite-mountain-top{
+.favorite-mountain-content{
   display: flex;
   flex-direction: row;
   width: 100%;
   height: 80%;
+}
+
+.favorite-mountain-info{
+  border: 1px solid black;
+  width: 100%;
+  border-radius: 0.75em;
+}
+
+.mountain-status{
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+.favorite-mountain-conditions{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.mountain-runs{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 0.75em;
+}
+
+.visited-count{
+  display: flex;
+  align-items: center;
+}
+
+.favorite-mountain-item-header{
+
 }

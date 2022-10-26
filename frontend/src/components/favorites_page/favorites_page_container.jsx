@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 import { useSelector, useDispatch} from 'react-redux';
-import {MountainWeatherForecastItem} from '../mountains/mountain_weather';
+import {MountainWeather, MountainWeatherForecastItem} from '../mountains/mountain_weather';
 import { getFavoriteMountains } from '../../actions/mountain_actions';
 
 const FavoritesPageContainer = () => {
@@ -23,15 +23,19 @@ const FavoritesPageContainer = () => {
       </section>
       <section className='mt-5 boxed' id='favorite-mountain-index'>
         <h4>Favorite Mountains</h4>
-        <div id='favorite-mountain-index-container'>
+        <div id='favorite-mountain-index-items'>
           {favoriteMountainItems}
         </div>
       </section>
     </div>
   )
 }
-
-
+// elevation info
+// status
+// snow depth
+// runs open
+// ski lifts
+// https://www.skiresort.info/ski-resorts/usa/
 const FavoriteMountainItem = ({mountain}) => {
   const {name, location:{city, state_code}, weather} = mountain
   const forecastWeatherItems = weather.forecast.slice(0,7).map( (weatherObj,i) => {
@@ -39,19 +43,36 @@ const FavoriteMountainItem = ({mountain}) => {
   })
   return (
     <div className='boxed favorite-mountain-item mt-3'>
-      <div className='favorite-mountain-item-header'>
-        <h3>{name}</h3>
-        <h5>{city}, {state_code}</h5>
+      <div className='container-header'>
+        <div className='favorite-mountain-name'>
+          <h3>{name}</h3>
+          <h5>{city}, {state_code}</h5>
+        </div>
+        <div className='visited-count'><h6> Visited: 0</h6></div>
       </div>
-      <div className='favorite-mountain-top'>
+      <div className='favorite-mountain-content'>
         <div className='boxed'>picture</div>
-        <div className='boxed'>
-          {/* <p>Times Visited</p> */}
-          <p>Lifts Open</p>
-          <p>Snow Depth</p>
+        <div className='favorite-mountain-info'>
+          <div className='favorite-mountain-conditions'>
+            <MountainWeather hideForecast={true} weather={weather}/>
+            <div className='mountain-status'>
+              <h5>Status</h5>
+              <h6>Open</h6>
+            </div>   
+          </div>
+          <div className='mountain-runs'>
+            <ul className='p-0'>
+              <li style={{"listStyle": "none"}}>Runs Open:</li>
+              <li style={{"listStyle": "none"}}>Lifts Open:</li>
+            </ul>
+            <ul>
+              <li style={{"listStyle": "none"}}>Snow Depth:</li>
+              <li style={{"listStyle": "none"}}>Elevation:</li>
+            </ul>
+          </div>
         </div> 
       </div>
-      <div className='mc-weather-forecast'> 
+      <div className='weather-forecast'> 
           {forecastWeatherItems}
       </div>
     </div>

@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react'
 import {Button, Collapse} from 'react-bootstrap'
 import localWeatherJson from './weatherItem.json'
 import icon from '../../assets/icons/unknown.png';
-export const MountainWeather = (props) => {
+export const MountainWeather = (props) => { //props = weather, numDays, hideForecast
   const {hideForecast = false} = props
   const [currWeather, setCurrWeather] = useState({})
   const [forecast, setForecast] = useState([])
@@ -82,7 +82,7 @@ export const MountainWeather = (props) => {
         Forecast
       </Button>
       <Collapse in={forecastOpen}>
-        <div className='mc-weather-forecast'> 
+        <div className='weather-forecast'> 
           {forecastWeatherItems}
         </div>
       </Collapse>
@@ -90,13 +90,13 @@ export const MountainWeather = (props) => {
   
   return (
     <>
-      <div className='mc-weather-today'>
+      <div className='weather-today'>
         <img src={icon} alt="" className='card-img-top weather-icon'/>
         <div className='weather-temp h3'>{temp}{'\u00b0'}</div>
         <div className='weather-conditions ml-3 mt-2'>
           <p className='h6'>Snowfall: {snowTotal}"</p>
-          <p className='weather-conditions-wind h6'>Wind: {degToCompass(wind_deg)} {wind_speed} mph</p>
-          <p className='weather-conditions-desc h6'>{description}</p>
+          <p className='h6'>Wind: {degToCompass(wind_deg)} {wind_speed} mph</p>
+          <p className='h6'>{description}</p>
         </div>
       </div>
       {showForecast}
@@ -116,10 +116,10 @@ export const MountainWeatherForecastItem = ({weatherObject}) => {
     const time = new Date(dt * 1000)
 
     return <>
-      <div className='mc-weather-item'>
+      <div className='weather-item'>
         <p className='mb-0'>{getWeekDay(time)} {time.getDate()}</p>
         <img src={icon} alt="" className='card-img-top weather-icon'/>
-        <div className='mc-weather-today-temp'>
+        <div className='weather-today-temp'>
           <p className='card-title h6'>{Math.floor(max)}{'\u00b0'}/</p>
           <p className='card-subtitle h7'>{Math.floor(min)}{'\u00b0'}</p>
         </div>

@@ -1,0 +1,242 @@
+[
+  {
+    "name": "49 Degrees North",
+    "location": {
+      "latitude": "48.302353",
+      "longitude": "-117.5640",
+      "state": "Washington",
+      "state_code": "WA",
+      "city": "Stevens County",
+      "country": "United States",
+      "country_code": "us"
+    }
+  },
+  {
+    "name": "Afton Alps",
+    "location": {
+      "latitude": "44.854332",
+      "longitude": "-92.79063",
+      "state": "Minnesota",
+      "state_code": "MN",
+      "city": "Washington County",
+      "country": "United States",
+      "country_code": "us"
+    }
+  },
+  {
+    "name": "Alpine Meadows",
+    "location": {
+      "latitude": "39.148201",
+      "longitude": "-120.1509",
+      "state": "California",
+      "state_code": "CA",
+      "city": "Placer County",
+      "country": "United States",
+      "country_code": "us"
+    }
+  },
+  {
+    "name": "Alpine Mountain",
+    "location": {
+      "latitude": "41.114666",
+      "longitude": "-75.22602",
+      "state": "Pennsylvania",
+      "state_code": "PA",
+      "city": "Price Township",
+      "country": "United States",
+      "country_code": "us"
+    }
+  },
+  {
+    "name": "Alpine Valley",
+    "location": {
+      "latitude": "41.526939",
+      "longitude": "-81.25988",
+      "state": "Ohio",
+      "state_code": "OH",
+      "city": "Geauga County",
+      "country": "United States",
+      "country_code": "us"
+    }
+  },
+  {
+    "name": "Alta",
+    "location": {
+      "latitude": "40.583828",
+      "longitude": "-111.6372",
+      "state": "Utah",
+      "state_code": "UT",
+      "city": "Salt Lake County",
+      "country": "United States",
+      "country_code": "us"
+    }
+  },
+  {
+    "name": "Alyeska Resort",
+    "location": {
+      "latitude": "60.961445",
+      "longitude": "-149.1026",
+      "state": "Alaska",
+      "state_code": "AK",
+      "city": "Anchorage",
+      "country": "United States",
+      "country_code": "us"
+    }
+  },
+  {
+    "name": "Andes Tower Hills",
+    "location": {
+      "latitude": "45.851013",
+      "longitude": "-95.63053",
+      "state": "Minnesota",
+      "state_code": "MN",
+      "city": "Douglas County",
+      "country": "United States",
+      "country_code": "us"
+    }
+  },
+  {
+    "name": "Angel Fire Resort",
+    "location": {
+      "latitude": "36.387402",
+      "longitude": "-105.2739",
+      "state": "New Mexico",
+      "state_code": "NM",
+      "city": "Colfax County",
+      "country": "United States",
+      "country_code": "us"
+    }
+  },
+  {
+    "name": "Apex Mountain",
+    "location": {
+      "latitude": "49.391090",
+      "longitude": "-119.9032",
+      "state": "British Columbia",
+      "state_code": "",
+      "city": "Area I (Skaha West/Kaleden/Apex)",
+      "country": "Canada",
+      "country_code": "ca"
+    }
+  },
+  {
+    "name": "Appalachian Ski Mountain",
+    "location": {
+      "latitude": "36.174622",
+      "longitude": "-81.66309",
+      "state": "North Carolina",
+      "state_code": "NC",
+      "city": "Watauga County",
+      "country": "United States",
+      "country_code": "us"
+    }
+  },
+  {
+    "name": "Apple Mountain",
+    "location": {
+      "latitude": "43.473991",
+      "longitude": "-84.10163",
+      "state": "Michigan",
+      "state_code": "MI",
+      "city": "Saginaw County",
+      "country": "United States",
+      "country_code": "us"
+    }
+  },
+  {
+    "name": "Arapahoe Basin Ski Area",
+    "location": {
+      "latitude": "39.642464",
+      "longitude": "-105.8718",
+      "state": "Colorado",
+      "state_code": "CO",
+      "city": "Summit County",
+      "country": "United States",
+      "country_code": "us"
+    }
+  },
+  {
+    "name": "Arizona Snowbowl",
+    "location": {
+      "latitude": "35.331127",
+      "longitude": "-111.7091",
+      "state": "Arizona",
+      "state_code": "AZ",
+      "city": "Coconino County",
+      "country": "United States",
+      "country_code": "us"
+    }
+  },
+  {
+    "name": "Arrowhead",
+    "location": {
+      "latitude": "43.363941",
+      "longitude": "-72.33351",
+      "state": "New Hampshire",
+      "state_code": "NH",
+      "city": "Claremont",
+      "country": "United States",
+      "country_code": "us"
+    }
+  },
+  {
+    "name": "Ascutney Mountain",
+    "location": {
+      "latitude": "43.468990",
+      "longitude": "-72.47097",
+      "state": "Vermont",
+      "state_code": "VT",
+      "city": "West Windsor",
+      "country": "United States",
+      "country_code": "us"
+    }
+  },
+  {
+    "name": "Asessippi Ski Area",
+    "location": {
+      "latitude": "50.951019",
+      "longitude": "-101.3399",
+      "state": "Manitoba",
+      "state_code": "",
+      "city": "Rural Municipality of Riding Mountain West",
+      "country": "Canada",
+      "country_code": "ca"
+    }
+  },
+  {
+    "name": "Ashcroft XC",
+    "location": {
+      "latitude": "39.118900",
+      "longitude": "-106.7964",
+      "state": "Colorado",
+      "state_code": "CO",
+      "city": "Pitkin County",
+      "country": "United States",
+      "country_code": "us"
+    }
+  },
+  {
+    "name": "Aspen Highlands",
+    "location": {
+      "latitude": "39.182522",
+      "longitude": "-106.8559",
+      "state": "Colorado",
+      "state_code": "CO",
+      "city": "Pitkin County",
+      "country": "United States",
+      "country_code": "us"
+    }
+  },
+  {
+    "name": "Aspen Mountain",
+    "location": {
+      "latitude": "39.186714",
+      "longitude": "-106.8192",
+      "state": "Colorado",
+      "state_code": "CO",
+      "city": "Pitkin County",
+      "country": "United States",
+      "country_code": "us"
+    }
+  }
+]
