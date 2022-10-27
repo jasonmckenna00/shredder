@@ -13,7 +13,7 @@
   display: flex;
   justify-content: center;
   flex-direction: row;
-  align-items: end;
+  align-items: flex-end;
   margin: 0;
 }
 
@@ -262,6 +262,7 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  min-height: 300px;
 }
 
 .favorite-mountain-item{
@@ -309,9 +310,34 @@
 
 .visited-count{
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.button-wrapper{
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
 }
 
 .favorite-mountain-item-header{
+
+}
+.footer{
+  display: flex;
+  flex-direction: row;
+  min-height: 120px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.social-links{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 33%;
+}
+.social-link{
 
 }

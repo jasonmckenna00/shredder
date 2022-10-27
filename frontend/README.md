@@ -4,14 +4,14 @@ COMPLETE = fix favorite mountains container. It is extending page passed viewing
 COMPLETE = fix favorite mountains forecase
 COMPLETE = get state code for locations. Need to update db table, reseed
 COMPLETE = Create Datatable for weather
+COMPLETE = Build favorite Mountain page
 
 MAY NOT DO = reduce amount of info received on search results
 remove slideout animation when search item comes in
 
 
-Set Up Nav Bar
-Build favorite Mountain page
-
+IN PROGRESS = Set Up Nav Bar
+get pictures of mountains
 
 PERSIST STORE ON REFRESH/REDIRECT?
 

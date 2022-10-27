@@ -38,7 +38,7 @@ export const MountainWeather = (props) => { //props = weather, numDays, hideFore
       //   }
       // })
     
-  },[])
+  },[props.weather, props.numDays])
 
 
   useEffect(() => {
@@ -59,7 +59,7 @@ export const MountainWeather = (props) => { //props = weather, numDays, hideFore
     return arr[(val % 16)];
   }
 
-  let {temperature, snow ,wind_speed, wind_deg, weather_description} = props.weather || {}
+  let {temperature, snow ,wind_speed, wind_deg, weather_description} = props.weather || currWeather
   if (!weather_description) {
     console.error('Unable to get weather')
     return null
@@ -68,8 +68,8 @@ export const MountainWeather = (props) => { //props = weather, numDays, hideFore
   let temp = Math.floor(temperature)
   wind_speed = Math.floor(wind_speed)
   const snowTotal = snow ? snow['1h'] : 0.0
-
-  const forecastWeatherItems = props.weather.forecast.slice(0,props.numDays).map( (weatherObj,i) => {
+  const forecastWeather = props.weather ? props.weather.forecast : forecast
+  const forecastWeatherItems = forecastWeather.slice(0,props.numDays).map( (weatherObj,i) => {
     return <MountainWeatherForecastItem weatherObject={weatherObj} key={i} />
   })
 

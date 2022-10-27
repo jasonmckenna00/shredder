@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import store from "../store";
 import '../styles/app.css';
 import NavBar from './navbar/navbar';
+import Footer from './footer/footer'
 // import { createBrowserRouter } from 'react-router-dom'
 import HomePageContainer from './home_page/home_page_container';
 import FavoritesPageContainer from './favorites_page/favorites_page_container'
@@ -21,6 +22,7 @@ class Root extends React.Component{
             <Route exact path='/' component={HomePageContainer}/>
             <Route path='/favorites' component={FavoritesPageContainer} />
           </Switch>
+          <Footer />
         
         </BrowserRouter>
       </Provider>

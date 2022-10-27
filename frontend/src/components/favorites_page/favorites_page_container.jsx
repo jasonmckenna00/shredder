@@ -3,11 +3,16 @@ import { withRouter } from 'react-router-dom';
 import { useSelector, useDispatch} from 'react-redux';
 import {MountainWeather, MountainWeatherForecastItem} from '../mountains/mountain_weather';
 import { getFavoriteMountains } from '../../actions/mountain_actions';
+import { XCircle } from 'react-bootstrap-icons'
+import {  removeFavoriteMountain } from '../../actions/mountain_actions';
 
 const FavoritesPageContainer = () => {
   const favoriteMountains = useSelector(state => Object.values(state.favoriteMountains))
+
+  const favoriteMountainIds = favoriteMountains.map(mount => mount.id)
+
   const favoriteMountainItems = favoriteMountains.map((mountain) => {
-    return <FavoriteMountainItem mountain={mountain} key={mountain.id}/>
+    return <FavoriteMountainItem mountain={mountain} key={mountain.id} favoriteMountainIds={favoriteMountainIds}/>
   })
   const dispatch = useDispatch()
 
@@ -15,6 +20,7 @@ const FavoritesPageContainer = () => {
     dispatch(getFavoriteMountains([1,2,3,4,5,6,7,8,9,10,11,12,13]))
   },[dispatch])
 
+  
 
   return (
     <div className='content'>
@@ -36,11 +42,20 @@ const FavoritesPageContainer = () => {
 // runs open
 // ski lifts
 // https://www.skiresort.info/ski-resorts/usa/
-const FavoriteMountainItem = ({mountain}) => {
+const FavoriteMountainItem = ({mountain, favoriteMountainIds}) => {
   const {name, location:{city, state_code}, weather} = mountain
+  const dispatch = useDispatch()
+
+  const removeFromFavorites = () => {
+    if (favoriteMountainIds.includes(mountain.id)){
+      dispatch(removeFavoriteMountain(mountain.id))
+    }
+  }
+
   const forecastWeatherItems = weather.forecast.slice(0,7).map( (weatherObj,i) => {
     return <MountainWeatherForecastItem weatherObject={weatherObj} key={i} />
   })
+
   return (
     <div className='boxed favorite-mountain-item mt-3'>
       <div className='container-header'>
@@ -48,7 +63,13 @@ const FavoriteMountainItem = ({mountain}) => {
           <h3>{name}</h3>
           <h5>{city}, {state_code}</h5>
         </div>
-        <div className='visited-count'><h6> Visited: 0</h6></div>
+        <div className='visited-count'>
+          <div className='button-wrapper'>
+            <XCircle className='add-to-favorites-button' onClick={removeFromFavorites}/>
+          </div>
+          <h6> Visited: 0</h6>
+
+        </div>
       </div>
       <div className='favorite-mountain-content'>
         <div className='boxed'>picture</div>
