@@ -12,7 +12,7 @@ remove slideout animation when search item comes in
 
 IN PROGRESS = Set Up Nav Bar
 get pictures of mountains
-
+Organize favorites on priority/ ranking
 PERSIST STORE ON REFRESH/REDIRECT?
 
 
@@ -21,4 +21,5 @@ Automate weather requests
 - One request every 4 Hours
 - Update table
 
-
+FUTURE - Can post highlites if you visited a mounting. Would be cool
+to see some group pics or sick shredding from your visits
